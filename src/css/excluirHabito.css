@@ -111,3 +111,41 @@
     font-weight: 600;
     cursor: pointer;
 }
+
+@media (max-width: 650px) {
+    .excluir-habito {
+        width: 305px;
+        height: 466px;
+    }
+
+    .cabecalho-model-excluir,
+    .corpo-model-excluir {
+        width: 12.75rem;
+    }
+
+    .corpo-model-excluir h4 {
+        font-size: 12px;
+    }
+
+    .corpo-model-excluir p {
+        font-size: 15px;
+    }
+
+    .botoes-model-excluir {
+        width: 13rem;
+        padding-top: 3rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .botoes-model-excluir .cancelar {
+        width: 7.938rem;
+        font-size: 15px;
+    }
+
+    .botoes-model-excluir .confirmacao-para-excluir {
+        width: 12.625rem;
+        font-size: 15px;
+    }
+
+}

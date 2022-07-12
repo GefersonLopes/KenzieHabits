@@ -1,0 +1,113 @@
+:root {
+    --gray-1: #212529;
+    --gray-2: #343A40;
+    --gray-5: #F1F3F5;
+    --gray-6: #FFFFFF;
+    --vermelhoFosco: #E64445;
+    --preto: 0, 0, 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(var(--preto), 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#excluir-habito {
+    width: 31.375rem;
+    height: 21.023rem;
+    background-color: var(--gray-6);
+    margin: auto;
+    border-radius: 0.500rem;
+}
+
+.cabecalho-model-excluir {
+    padding-top: 2.375rem;
+    margin: auto;
+    display: flex;
+    width: 26.75rem;
+    height: 1.563rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cabecalho-model-excluir h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--gray-1);
+}
+
+.fechar-modal-excluir {
+    background-color: var(--gray-6);
+    border: none;
+    cursor: pointer;
+}
+
+.corpo-model-excluir {
+    width: 26.75rem;
+    padding-top: 4.313rem;
+    margin: auto;
+
+}
+
+.corpo-model-excluir h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: rgba(var(--preto), 1);
+    padding-bottom: 0.858rem;
+}
+
+.corpo-model-excluir p {
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--gray-2);
+}
+
+.botoes-model-excluir {
+    display: flex;
+    justify-content: space-between;
+    width: 27rem;
+    margin: auto;
+    padding-top: 4rem;
+}
+
+.botoes-model-excluir .cancelar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 11.938rem;
+    height: 2.500rem;
+    background: var(--gray-5);
+    border: 2px solid var(--gray-5);
+    border-radius: 4px;
+    color: var(--gray-2);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.botoes-model-excluir .confirmacao-para-excluir {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 14.625rem;
+    height: 2.500rem;
+    background: var(--vermelhoFosco);
+    border: 2px solid var(--vermelhoFosco);
+    border-radius: 4px;
+    color: var(--gray-6);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}

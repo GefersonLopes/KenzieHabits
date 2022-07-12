@@ -1,4 +1,9 @@
-import Modais from "../controller/excluirHabito.controller.js";
+import ModalEditarPerfil from "../controller/modalEditarPerfil.controller.js";
+import ModalExcluir from "../controller/modalExcluir.controller.js";
 
-// Chama a função modal excluir
-Modais.modalExcluir()
+
+// Chamada modal excluir tarefa
+//ModalExcluir.modalExcluir()
+
+// Chamada modal editar perfil
+//ModalEditarPerfil.modalEditarPerfil()

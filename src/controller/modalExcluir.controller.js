@@ -1,6 +1,10 @@
-export default class Modais {
-    static corpoPrincipalModalExcluir = document.getElementById('corpo')
+export default class ModalExcluir {
+    static body = document.querySelector('body')
+
     static modalExcluir() {
+
+        const corpoPrincipalModalExcluir = document.createElement('div')
+        corpoPrincipalModalExcluir.id = 'corpo'
 
         const excluirHabito = document.createElement('div')
         excluirHabito.classList.add('excluir-habito')
@@ -59,6 +63,8 @@ export default class Modais {
 
         excluirHabito.append(cabecalhoExcluir, corpoDoModal, botoesExcluir)
 
-        this.corpoPrincipalModalExcluir.append(excluirHabito)
+        corpoPrincipalModalExcluir.append(excluirHabito)
+
+        this.body.append(corpoPrincipalModalExcluir)
     }
 }

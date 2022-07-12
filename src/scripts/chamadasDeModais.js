@@ -6,4 +6,4 @@ import ModalExcluir from "../controller/modalExcluir.controller.js";
 //ModalExcluir.modalExcluir()
 
 // Chamada modal editar perfil
-//ModalEditarPerfil.modalEditarPerfil()
+ModalEditarPerfil.modalEditarPerfil()

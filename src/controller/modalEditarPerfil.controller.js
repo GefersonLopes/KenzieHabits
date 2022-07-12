@@ -1,3 +1,4 @@
+import Perfil from "../models/modalEditarPerfil.controller.js"
 export default class ModalEditarPerfil {
     static body = document.querySelector('body')
 
@@ -15,6 +16,10 @@ export default class ModalEditarPerfil {
         tagEditarPerfil.innerText = 'Editar Perfil'
 
         const buttonX = document.createElement('button')
+
+        buttonX.addEventListener('click', event => {
+            corpoPrincipalModalEditarPerfil.style.display = 'none'
+        })
 
         const imagemX = document.createElement('img')
         imagemX.src = '/src/assets/img/X.png'
@@ -44,6 +49,18 @@ export default class ModalEditarPerfil {
         salvar.innerText = 'Salvar alterações'
         salvar.classList.add('salvar-alteracoes')
 
+        salvar.addEventListener('click', event => {
+            const nomeDoUsuario = inputNome.value
+            const urlDoUsuario = inputImg.value
+
+            const dadosParaAlterar =
+            {
+                "usr_image": urlDoUsuario
+            }
+
+            await Perfil.editarPerfil(dadosParaAlterar)
+        })
+
         formularioEditarPerfil.append(labelNome, inputNome, labelUrlImagem, inputImg, salvar)
 
         buttonX.appendChild(imagemX)
@@ -54,8 +71,7 @@ export default class ModalEditarPerfil {
 
         corpoPrincipalModalEditarPerfil.append(corpoEditarPerfil)
 
-        console.log(corpoPrincipalModalEditarPerfil)
-
         this.body.appendChild(corpoPrincipalModalEditarPerfil)
     }
 }
+

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/src/css/editarHabito.css">
+    <link rel="stylesheet" href="/src/css/resetar.css">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Hábito</title>
+</head>
+
+<body>
+
+    <div id="editar-habito">
+
+        
+        
+        <div class="corpo-model-editar">
+            
+            <div class="cabecalho-model-editar">
+                <h4>Editar hábito</h4>
+                <button class="fechar-modal-editar">
+                    <p class="editar-fechar">X</p>
+                </button>
+            </div>
+
+            <form class="formulario-editar-habito">
+
+                <div class="agrupar">
+                    <label for="titulo-habito">Título</label>
+                    <input type="text" id="titulo" name="titulo-habito" class="input input--titulo-habito" placeholder="Digitar título">
+                </div>
+
+                <div class="agrupar">
+                    <label for="descricao-habito">Descrição</label>
+                    <input type="text" id="descricao" name="descricao-habito" class="input input--descricao-habito" placeholder="Digitar descrição">
+                </div>
+
+                <div class="agrupar">
+                    <label for="categoria-habito">Categoria</label>
+
+                    <select id="categoria" name="categoria-habito" class="input input--categoria-habito">
+                        <option value=""> 
+                            Categoria
+                        </option>
+
+                        <option value="casa">
+                            <img src="../assets/img/casa.png">
+                            Casa
+                        </option>
+                        <option value="estudo">Estudo</option>
+                        <option value="lazer">Lazer</option>
+                        <option value="trabalho">Trabalho</option>
+                        <option value="saude">Saúde</option>
+                    </select>
+                </div>
+
+                <div class="agrupar">
+
+                    <div class="status-habito">
+                    <label for="status-habito">Status</label>
+                    <input type="checkbox" id="status" name="status-habito">
+                </div>
+
+
+
+            </div>
+
+            <div class="botoes-model-editar">
+                <button type="submit" class="excluir">
+                    Excluir
+                </button>
+                <button type="submit" class="salvar-alteracao">
+                    Salvar Alterações
+                </button>
+            </div>
+                 
+            </form>
+
+
+
+        </div>
+
+
+    </div>
+
+
+    <script type="module" src="../controller/editarHabitoController.js"></script>
+</body>
+
+</html> 

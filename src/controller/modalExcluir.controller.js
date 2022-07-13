@@ -1,6 +1,21 @@
 export default class ModalExcluir {
     static body = document.querySelector('body')
 
+    static valorToken = JSON.parse(localStorage.getItem("@kenzie-capstone:token"))
+
+    static async excluir(idDoHabito) {
+        return await fetch(`https://habits-kenzie.herokuapp.com/api/habits/:${idDoHabito}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "Application/json",
+                "Authorization": `Bearer ${this.valorToken}`
+            }
+        })
+            .then(res => res.json())
+            .then(res => alert(res))
+            .catch(erro => console.log(erro))
+    }
+
     static modalExcluir() {
 
         const corpoPrincipalModalExcluir = document.createElement('div')

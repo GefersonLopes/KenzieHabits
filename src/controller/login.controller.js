@@ -12,7 +12,10 @@ export default class login {
         })
         .then(resposta => resposta.json())
         .then(resposta => {
-            console.log(resposta)
+            const variavelUsuario = resposta.response
+            /* console.log(variavelUsuario.usr_image) */
+            localStorage.setItem("@kenzie-capstone:userName", JSON.stringify(variavelUsuario.usr_name))
+            localStorage.setItem("@kenzie-capstone:userFoto", JSON.stringify(variavelUsuario.usr_image))
             localStorage.setItem("@kenzie-capstone:token", JSON.stringify(resposta.token))
             return resposta
         })

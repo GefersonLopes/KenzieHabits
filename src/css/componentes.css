@@ -1,0 +1,84 @@
+body {
+    background-color: rgba(var(--color-grey-6), 1);
+}
+
+.header {
+    height: 11.4rem;
+}
+
+.container {
+    display: flex;
+}
+
+.h4 {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.p {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.section {
+    width: 20rem;
+}
+
+@media screen and (min-width:768px) {
+    .section {
+        width: 29.5rem;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .section {
+        width: 37rem;
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .section {
+        width: 38.4rem;
+    }
+}
+
+@media screen and (min-width:1920px) {
+    .section {
+        width: 65.4rem;
+    }
+}
+
+.button {
+    cursor: pointer;
+}
+
+.table {
+    width: 17rem;
+}
+
+@media screen and (min-width:1920px) {
+    .table {
+        width: 65.4rem;
+    }
+}
+
+.tr {
+    border-bottom: 2px solid rgba(var(--color-grey-4), 1);
+    height: 3rem;
+}
+
+.th {
+    color: rgba(var(--color-grey-3), 1);
+    height: 3rem;
+    font-weight: 500;
+    font-size: 16px;
+    padding-top: 1rem;
+}
+
+.td {
+    color: rgba(var(--color-grey-2), 1);
+    font-weight: 500;
+    font-size: 16px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}

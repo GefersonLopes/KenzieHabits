@@ -119,12 +119,6 @@ export class Construção {
         
     }
 
-    static requisiçao() {
-
-
-
-    }
-
 }
 
-Construção.criarHabitos();
+

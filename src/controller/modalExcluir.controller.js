@@ -35,7 +35,7 @@ export default class ModalExcluir {
         fecharModal.type = 'button'
 
         fecharModal.addEventListener('click', event => {
-            this.corpoPrincipalModalExcluir.style.display = 'none'
+            corpoPrincipalModalExcluir.style.display = 'none'
         })
 
         const imagemX = document.createElement('img')
@@ -60,13 +60,17 @@ export default class ModalExcluir {
         cancelar.innerText = 'Cancelar'
 
         cancelar.addEventListener('click', event => {
-            this.corpoPrincipalModalExcluir.style.display = 'none'
+            corpoPrincipalModalExcluir.style.display = 'none'
         })
 
         const confirmar = document.createElement('button')
         confirmar.classList.add('confirmacao-para-excluir')
         confirmar.type = 'button'
         confirmar.innerText = 'Sim, excluir este hábito'
+
+        confirmar.addEventListener('click', async event => {
+            this.modalExcluir()
+        })
 
         botoesExcluir.append(cancelar, confirmar)
 
@@ -83,3 +87,5 @@ export default class ModalExcluir {
         this.body.append(corpoPrincipalModalExcluir)
     }
 }
+
+ModalExcluir.modalExcluir()

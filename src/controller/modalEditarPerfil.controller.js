@@ -69,6 +69,7 @@ export default class ModalEditarPerfil {
 
             const dadosParaAlterar =
             {
+                "usr_name": nomeDoUsuario,
                 "usr_image": urlDoUsuario
             }
 
@@ -88,3 +89,5 @@ export default class ModalEditarPerfil {
         this.body.appendChild(corpoPrincipalModalEditarPerfil)
     }
 }
+
+ModalEditarPerfil.modalEditarPerfil()

@@ -3,7 +3,7 @@ export default class ModalExcluir {
 
     static valorToken = JSON.parse(localStorage.getItem("@kenzie-capstone:token"))
 
-    static async excluir(idDoHabito) {
+    static async excluirDaApi(idDoHabito) {
         return await fetch(`https://habits-kenzie.herokuapp.com/api/habits/:${idDoHabito}`, {
             method: "DELETE",
             headers: {
@@ -69,7 +69,7 @@ export default class ModalExcluir {
         confirmar.innerText = 'Sim, excluir este hábito'
 
         confirmar.addEventListener('click', async event => {
-            this.modalExcluir()
+            this.excluirDaApi()
         })
 
         botoesExcluir.append(cancelar, confirmar)
@@ -87,5 +87,3 @@ export default class ModalExcluir {
         this.body.append(corpoPrincipalModalExcluir)
     }
 }
-
-ModalExcluir.modalExcluir()

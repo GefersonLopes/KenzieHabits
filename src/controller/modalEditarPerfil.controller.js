@@ -3,7 +3,7 @@ export default class ModalEditarPerfil {
     static body = document.querySelector('body')
     static valorToken = JSON.parse(localStorage.getItem("@kenzie-capstone:token"))
 
-    static async editarPerfil(dadosParaAlterar) {
+    static async editarPerfilNaApi(dadosParaAlterar) {
         return await fetch("https://habits-kenzie.herokuapp.com/api/user/profile", {
             method: "PATCH",
             headers: {
@@ -13,10 +13,11 @@ export default class ModalEditarPerfil {
             body: JSON.stringify(dadosParaAlterar)
         })
             .then(res => res.json())
+            .then(res => alert(res))
             .catch(erro => console.log(erro))
     }
 
-    static async modalEditarPerfil() {
+    static async editarPerfil() {
         const corpoPrincipalModalEditarPerfil = document.createElement('div')
         corpoPrincipalModalEditarPerfil.classList.add('modal-editar-perfil')
 
@@ -73,7 +74,7 @@ export default class ModalEditarPerfil {
                 "usr_image": urlDoUsuario
             }
 
-            await this.editarPerfil(dadosParaAlterar)
+            await this.editarPerfilNaApi(dadosParaAlterar)
         })
 
         formularioEditarPerfil.append(labelNome, inputNome, labelUrlImagem, inputImg, salvar)
@@ -89,5 +90,3 @@ export default class ModalEditarPerfil {
         this.body.appendChild(corpoPrincipalModalEditarPerfil)
     }
 }
-
-ModalEditarPerfil.modalEditarPerfil()

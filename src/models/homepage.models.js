@@ -1,6 +1,9 @@
+import ModalEditarPerfil from "../controller/modalEditarPerfil.controller.js";
+
+
 class Homepage {
 
-    static criarHeader() {
+    static criarHeader(fotoUsuario) {
         const body = document.querySelector("body");
 
         const header = document.createElement("header");
@@ -23,7 +26,7 @@ class Homepage {
         buttonUsuario.classList.add("button", "button__usuario");
         const figureUsuario = document.createElement("figure");
         const imgUsuario = document.createElement("img");
-        imgUsuario.src = "/src/assets/img/logoKenzieHabit.png";
+        imgUsuario.src = fotoUsuario
         imgUsuario.alt = "Imagem de Perfil";
         imgUsuario.classList.add("image", "image__usuario");
         figureUsuario.appendChild(imgUsuario);
@@ -41,7 +44,7 @@ class Homepage {
 
         const figureUsuarioHeader = document.createElement("figure");
         const imgUsuarioHeader = document.createElement("img");
-        imgUsuarioHeader.src = "/src/assets/img/logoKenzieHabit.png";
+        imgUsuarioHeader.src = fotoUsuario
         imgUsuarioHeader.alt = "Imagem do Usuario";
         imgUsuarioHeader.classList.add("image", "image__usuario-2");
         figureUsuarioHeader.appendChild(imgUsuarioHeader);
@@ -51,7 +54,7 @@ class Homepage {
 
         const h4Nome = document.createElement("h4");
         h4Nome.classList.add("h4", "h4__nome");
-        h4Nome.innerText = "Júlia Silva Camargo";
+        h4Nome.innerText = JSON.parse(localStorage.getItem("@kenzie-capstone:userName"));
 
         const pUsuarioInfo = document.createElement("p");
         pUsuarioInfo.classList.add("p", "p__usuario-info");
@@ -62,6 +65,11 @@ class Homepage {
         divContainerUsuario.appendChild(divContainerUsuarioHeader);
         header.appendChild(divContainerUsuario);
         body.appendChild(header);
+
+
+        buttonUsuario.addEventListener("click", () => {
+            ModalEditarPerfil.editarPerfil()
+        })
 
         return header;
     }
@@ -81,6 +89,7 @@ class Homepage {
 
 
     }
+
 }
 
 export default Homepage;

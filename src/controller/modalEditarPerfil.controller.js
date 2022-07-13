@@ -1,3 +1,7 @@
+import Homepage from "../models/homepage.models.js"
+
+
+
 export default class ModalEditarPerfil {
 
     static body = document.querySelector('body')
@@ -13,7 +17,13 @@ export default class ModalEditarPerfil {
             body: JSON.stringify(dadosParaAlterar)
         })
             .then(res => res.json())
-            .then(res => alert(res))
+            .then(res => {
+                const fotoUsuario = document.querySelector(".image__usuario")
+                const fotoUsuario2 = document.querySelector(".image__usuario-2")
+                
+                fotoUsuario2.src = res.usr_image
+                fotoUsuario.src = res.usr_image
+            })
             .catch(erro => console.log(erro))
     }
 
@@ -67,14 +77,15 @@ export default class ModalEditarPerfil {
         salvar.addEventListener('click', async event => {
             const nomeDoUsuario = inputNome.value
             const urlDoUsuario = inputImg.value
-
+            console.log(nomeDoUsuario, urlDoUsuario)
             const dadosParaAlterar =
             {
-                "usr_name": nomeDoUsuario,
                 "usr_image": urlDoUsuario
             }
 
             await this.editarPerfilNaApi(dadosParaAlterar)
+
+            corpoPrincipalModalEditarPerfil.style.display = "none"
         })
 
         formularioEditarPerfil.append(labelNome, inputNome, labelUrlImagem, inputImg, salvar)

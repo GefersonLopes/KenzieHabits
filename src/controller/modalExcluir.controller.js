@@ -87,3 +87,5 @@ export default class ModalExcluir {
         this.body.append(corpoPrincipalModalExcluir)
     }
 }
+
+ModalExcluir.modalExcluir()

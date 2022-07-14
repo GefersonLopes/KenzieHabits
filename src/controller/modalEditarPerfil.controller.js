@@ -80,12 +80,14 @@ export default class ModalEditarPerfil {
             console.log(nomeDoUsuario, urlDoUsuario)
             const dadosParaAlterar =
             {
+                "usr_name": nomeDoUsuario,
                 "usr_image": urlDoUsuario
             }
 
             await this.editarPerfilNaApi(dadosParaAlterar)
 
             corpoPrincipalModalEditarPerfil.style.display = "none"
+            window.location.reload(true)
         })
 
         formularioEditarPerfil.append(labelNome, inputNome, labelUrlImagem, inputImg, salvar)

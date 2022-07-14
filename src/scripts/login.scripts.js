@@ -15,10 +15,10 @@ const btnFormulario = document.querySelector(".formLogin")
 btnFormulario.addEventListener("submit", (e) => {
     e.preventDefault()
     dadosUser.dadosParaLogin()
-    if(JSON.parse(localStorage.getItem("@kenzie-capstone:token"))){
-        window.location.href = "/temp/testando.html"
-    } else {
+    if(JSON.parse(localStorage.getItem("@kenzie-capstone:token")) !== null){
         alert("aqui nao!")
+    } else {
+        window.location.href = "/temp/testando.html"
     }
 })
 

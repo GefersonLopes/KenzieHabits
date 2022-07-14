@@ -1,12 +1,15 @@
 .container__logo-usuario {
     height: 3.6rem;
     justify-content: center;
+    border: 1px solid red;
+    
 }
 
 .container__logo-usuario-header {
     width: 65.4rem;
     justify-content: space-around;
     align-items: center;
+    border: 1px solid black;
 }
 
 .button__usuario {

@@ -88,4 +88,3 @@ export default class ModalExcluir {
     }
 }
 
-ModalExcluir.modalExcluir()

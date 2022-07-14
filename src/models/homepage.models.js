@@ -1,5 +1,7 @@
+import modalEditarHabito from "../controller/modalEditarHabitoController.js";
 import ModalEditarPerfil from "../controller/modalEditarPerfil.controller.js";
 import ModalExcluir from "../controller/modalExcluir.controller.js";
+
 
 const valorToken = JSON.parse(localStorage.getItem("@kenzie-capstone:token"))
 class Homepage {
@@ -203,7 +205,6 @@ class Homepage {
                         imageImageEditarHabito.alt = 'Editar Hábito'
                         imageImageEditarHabito.src = '/src/assets/img/habitEdit.png'
 
-                        console.log(imageImageEditarHabito)
                         buttonButtonEditarHabito.append(imageImageEditarHabito)
 
                         tdTdEditar.append(buttonButtonEditarHabito)
@@ -243,6 +244,7 @@ class Homepage {
             })
                 .then(res => res.json())
                 .then(res => {
+                    console.log(res)
                     const newArray = res.filter(elem => {
                         if (elem.habit_status === true) {
                             const tr2 = document.createElement('tr')
@@ -534,8 +536,9 @@ class Homepage {
 
                     buttonButtonEditarHabito.addEventListener("click", (e) => {
                         e.preventDefault()
-
-                        
+                        modalEditarHabito.criarModalEditarHabito()
+                        const divGeralModalEditarHabito = document.querySelector(".divPegaGeral")
+                        divGeralModalEditarHabito.style.display = "flex"
                         
                     })
                 })

@@ -8,13 +8,15 @@
     --fonte-inter: 'Inter', sans-serif;
 }
 
-body {
-    width: 100vw;
+.divPegaGeral {
+    width: 100%;
     height: 100vh;
-    background-color: rgba(var(--preto), 0.5);
+    top: 0;
     display: flex;
+    background-color: rgba(var(--preto), 0.5);
     align-items: center;
     justify-content: center;
+    position: fixed;
 }
 
 #editar-habito {
@@ -26,8 +28,9 @@ body {
     gap: 32px;
     background-color: var(--gray-6);
     border-radius: 8px;
-    position: absolute;
     padding: 2rem;
+    top: 0;
+    left: 0;
 }
 
 

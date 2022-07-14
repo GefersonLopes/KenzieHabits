@@ -1,15 +1,15 @@
 export default class requisicoesEditarHabito {
     static url = "https://habits-kenzie.herokuapp.com/api/habits";
-
+    static token = JSON.parse(localStorage.getItem("@kenzie-capstone:token"))
     static headers = {
         "Content-Type": "aplication/json",
-        "Authorization": `Bearer ${token}`
+        "Authorization": `Bearer ${this.token}`
     };
 
-    static async salvaAlteracoes (dados_alteracao, url, headers) {
-        return await fetch(`${url}/${id}`, {
+    static async salvaAlteracoes (dados_alteracao) {
+        return await fetch(`${this.url}/${dados_alteracao.habit_id}`, {
             method: "PATCH",
-            headers: `${headers}`,
+            headers: `${this.headers}`,
             body: JSON.stringify(dados_alteracao)
         })
         .then(res => res.json())

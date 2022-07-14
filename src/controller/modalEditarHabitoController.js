@@ -6,7 +6,7 @@ export default class modalEditarHabito {
     static body = document.querySelector("body");
 
     static recebeDados(id) {
-
+        
         const inputTitulo = document.querySelector("#titulo");
         const titulo = inputTitulo.value;
     
@@ -22,19 +22,21 @@ export default class modalEditarHabito {
         // editarHabito.editar(id, titulo, descricao, categoria, status);
     
         const dadosRequisicao = {
-            "habit id": id,
+            /* "habit id": id, */
             "habit_title": titulo,
             "habit_description": descricao,
             "habit_category": categoria,
-            "habit_status": status
+            /* "habit_status": status */
         }
         
-        /* requisicoesEditarHabito.salvaAlteracoes(dadosRequisicao) */
+        requisicoesEditarHabito.salvaAlteracoes(dadosRequisicao, id)
         console.log(dadosRequisicao)
+        console.log(categoria)
+
     }
     
 
-    static criarModalEditarHabito(id, token) {
+    static criarModalEditarHabito(id) {
 
         const divPegaGeral      = document.createElement("div");
         const divEditarHabito   = document.createElement("div");
@@ -123,7 +125,7 @@ export default class modalEditarHabito {
         optionCasa.classList.add("fa-solid", "user-alt");
 
         optionEstudo.innerText = "Estudo";
-        optionEstudo.value = "estudo";
+        optionEstudo.value = "estudos";
         optionEstudo.classList.add("fa-solid", "poll-h");
 
         optionLazer.innerText = "Lazer";
@@ -131,7 +133,7 @@ export default class modalEditarHabito {
         optionLazer.classList.add("fa-solid", "leaf")
 
         optionTrabalho.innerText = "Trabalho";
-        optionTrabalho.value = "trablho";
+        optionTrabalho.value = "trabalho";
         optionTrabalho.classList.add("fa-solid", "poll");
 
         optionSaude.innerText = "Saúde";
@@ -160,8 +162,10 @@ export default class modalEditarHabito {
         botaoSalvar.innerText = "Salvar alterações";
         botaoSalvar.addEventListener("click", el => {
             el.preventDefault();
-            /* requisicoesEditarHabito.salvaAlteracoes(id); */
-            this.recebeDados()
+            const divFecharModalEditarHabito = document.querySelector(".divPegaGeral")
+            divFecharModalEditarHabito.style.display = "none"
+            this.recebeDados(id)
+            window.location.reload(true)
         })
 
         // // const iconeCasa        = document.createElement("icone");
@@ -216,7 +220,7 @@ export default class modalEditarHabito {
 
         divPegaGeral.append(divEditarHabito)
 
-        selectCategoria.append(optionCategoria, optionCasa, optionEstudo, optionLazer, optionTrabalho, optionSaude);
+        selectCategoria.append(optionCasa, optionEstudo, optionLazer, optionTrabalho, optionSaude);
         
         divPegaGeral.style.display = "none"
 

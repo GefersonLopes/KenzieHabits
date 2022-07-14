@@ -118,24 +118,6 @@ class Homepage {
         return header;
     }
 
-    static async requisicaoLerHabitos() {
-
-        return await fetch("https://habits-kenzie.herokuapp.com/api/habits", {
-            method: "GET",
-            headers: {
-                "Content-type": "application/json",
-                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("@kenzie-capstone:token"))}`
-            }
-        })
-            .then(obj => obj.json())
-            .then(res => {
-                //console.log(res)
-                return res;
-            })
-            .catch(err => console.log(err))
-
-    }
-
     static criarMain() {
         const body = document.querySelector("body")
         const main = document.createElement('main')
@@ -292,69 +274,6 @@ class Homepage {
         body.append(main)
     }
 
-    static async criarTrs() {
-
-        const array_habitos = await Homepage.requisicaoLerHabitos();
-        const table = document.querySelector(".table__tarefas");
-
-        array_habitos.forEach(element => {
-            console.log(element)
-
-            console.log(table)
-
-            const tr = document.createElement("tr");
-
-            const trCheckbox = document.createElement("tr");
-            const trTitulo = document.createElement("tr");
-            const trDescricao = document.createElement("tr");
-            const trCategoria = document.createElement("tr");
-            const trEditar = document.createElement("tr");
-
-            const label = document.createElement("label");
-
-            const input = document.createElement("input");
-            const spanLabel = document.createElement("span");
-
-            const span = document.createElement("span");
-            const button = document.createElement("button");
-            const img = document.createElement("img");
-
-            tr.classList = "tr";
-
-            trCheckbox.classList = "td td__checkbox";
-            trTitulo.classList = "td td__titulo";
-            trDescricao.classList = "td td__desc";
-            trCategoria.classList = "td td__categoria";
-            trEditar.classList = "td td__editar";
-
-            label.classList = "label label__tabela";
-            input.classList = "input input__checkbox";
-            spanLabel.classList = "span span__checkmark";
-
-            span.classList = "span span__categoria";
-            button.classList = "button button__editar-habito";
-            img.classList = "image image__editar-habito";
-
-            input.type = "checkbox";
-            trTitulo.append(element.habit_title);
-            trDescricao.append(element.habit_description);
-            span.innerText = element.habit_category;
-
-            img.src = "/src/assets/img/habitEdit.png";
-            img.alt = "editar hábito";
-
-            table.appendChild(tr);
-            tr.append(trCheckbox, trTitulo, trDescricao, trCategoria, trEditar);
-            trCheckbox.append(label);
-            label.append(input,spanLabel);
-            trCategoria.append(span);
-            trEditar.append(button);
-            button.append(img);
-        });
-
-    }
-
 }
 
 export default Homepage;
-Homepage.criarTrs();

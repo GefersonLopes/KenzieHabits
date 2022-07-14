@@ -21,6 +21,7 @@
     height: 2.5rem;
     border-radius: 50%;
     border: 0.125rem solid rgba(var(--color-brand-2), 1);
+    object-fit: cover;
 }
 
 .container__usuario {
@@ -83,6 +84,7 @@
     height: 3.75rem;
     border-radius: 50%;
     border: 0.125rem solid rgba(var(--color-grey-6), 1);
+    object-fit: cover;
 }
 
 .container__usuario-info {

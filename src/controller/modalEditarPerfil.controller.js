@@ -19,7 +19,7 @@ export default class ModalEditarPerfil {
             .then(res => {
                 const fotoUsuario = document.querySelector(".image__usuario")
                 const fotoUsuario2 = document.querySelector(".image__usuario-2")
-                
+
                 fotoUsuario2.src = res.usr_image
                 fotoUsuario.src = res.usr_image
             })

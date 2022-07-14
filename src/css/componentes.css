@@ -62,7 +62,7 @@ body {
     }
 }
 
-.tr {
+.tr_cabecalho {
     border-bottom: 2px solid rgba(var(--color-grey-4), 1);
     height: 3rem;
 }

@@ -9,10 +9,8 @@ font-family: 'Poppins', sans-serif;*/
 
 .container {
     width: 100%;
-    height: 40rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -31,7 +29,8 @@ font-family: 'Poppins', sans-serif;*/
     font-weight: 600;
     position: relative;
     width: 100%;
-    max-width: 17.5rem;    
+    max-width: 17.5rem;  
+    margin: 2rem 0;
 }
 
 .formLogin {
@@ -53,12 +52,15 @@ font-family: 'Poppins', sans-serif;*/
 
 .formLogin input {
     width: 100%;
-    max-width: 17rem;
+    max-width: 17.5rem;
     height: 2rem;
     margin-bottom: 1rem;
     background-color: #F1F3F5;
-    border: 2px solid #F1F3F5;
+    border: 2px solid #415AF3;
     color: #212529;
+    border-radius: 4px;
+    padding: 0 15px;
+    font-size: 14px;
 }
 
 .formLogin input:focus {
@@ -75,11 +77,12 @@ font-family: 'Poppins', sans-serif;*/
     height: 2rem;
     border-radius: 4px;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 .partPropaganda {
-    width: 80%;
-    height: 100rem;
+    width: 100%;
+    height: 20rem;
     background-color: #4150D2;
     padding: 0.8rem 3rem;
     word-wrap: break-word;
@@ -112,7 +115,7 @@ font-family: 'Poppins', sans-serif;*/
 @media only screen and (min-width: 768px) {
     .container_geral {
         width: 100%;
-        height: 100%;
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -158,7 +161,7 @@ font-family: 'Poppins', sans-serif;*/
     
     .formLogin input {
         width: 80%;
-        max-width: 19.5rem;
+        max-width: 20rem;
         height: 2.2rem;
         margin-bottom: 1rem;
         background-color: #F1F3F5;
@@ -168,7 +171,7 @@ font-family: 'Poppins', sans-serif;*/
     
     .formLogin .btnEntrar {
         width: 83%;
-        max-width: 19.7rem;
+        max-width: 20rem;
         margin: 0.8rem 0 2.8rem;
         border: 2px solid #415AF3;
         background-color: #415AF3;
@@ -190,8 +193,8 @@ font-family: 'Poppins', sans-serif;*/
     }
 
     .partPropaganda {
-        width: 45%;
-        max-height: 20.4rem;
+        width: 50%;
+        height: 21.462rem;
         background-color: #4150D2;
         padding: 0.8rem 3rem;
         word-wrap: break-word;
@@ -202,7 +205,7 @@ font-family: 'Poppins', sans-serif;*/
 @media only screen and (min-width: 1268px) {
     .container {
         max-height: 100vh;
-
+        
     }
     .partLogin {
         position: relative;
@@ -211,7 +214,7 @@ font-family: 'Poppins', sans-serif;*/
         justify-content: center;
         align-items: center;
         width: 50%;
-        height: 30rem;
+        height: 30.313rem;
         background-color: #FFFFFF;
         border-radius: 0 8px 8px 0;
         box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
@@ -222,13 +225,14 @@ font-family: 'Poppins', sans-serif;*/
         font-weight: 600;
         position: relative;
         width: 83%;
-        max-width: 23.5rem;    
+        max-width: 23.5rem;
     }
     .formLogin label {
         position: relative;
         margin: 0.5rem 0;
         width: 83%;
         max-width: 23.5rem;
+
         font-family: 'Inter', sans-serif;
         font-weight: 400;
         font-size: 14px;
@@ -236,8 +240,8 @@ font-family: 'Poppins', sans-serif;*/
     
     .formLogin input {
         width: 84%;
-        max-width: 23rem;
-        height: 2.2rem;
+        max-width: 23.5rem;
+        height: 2.5rem;
         margin-bottom: 1rem;
         background-color: #F1F3F5;
         border: 2px solid #F1F3F5;
@@ -256,8 +260,8 @@ font-family: 'Poppins', sans-serif;*/
     }
 
     .partPropaganda {
-        width: 45%;
-        max-height: 28.5rem;
+        width: 50%;
+        height: 30.313rem;
         background-color: #4150D2;
         padding: 0.8rem 3rem;
         word-wrap: break-word;

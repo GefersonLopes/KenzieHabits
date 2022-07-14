@@ -80,7 +80,7 @@ export default class ModalEditarPerfil {
             const dadosParaAlterar =
             {
                 "usr_name": nomeDoUsuario,
-                "usr_image": urlDoUsuario
+                "usr_image": localStorage.setItem("@kenzie-capstone:userFoto", JSON.stringify(urlDoUsuario))
             }
 
             await this.editarPerfilNaApi(dadosParaAlterar)

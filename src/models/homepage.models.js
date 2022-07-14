@@ -201,10 +201,13 @@ class Homepage {
                         const imageImageEditarHabito = document.createElement('img')
                         imageImageEditarHabito.classList.add('image', 'image__editar-habito')
                         imageImageEditarHabito.alt = 'Editar Hábito'
-                        imageImageEditarHabito.src = './src/assets/img/habitEdit.png'
+                        imageImageEditarHabito.src = '/src/assets/img/habitEdit.png'
+
+                        console.log(imageImageEditarHabito)
+                        buttonButtonEditarHabito.append(imageImageEditarHabito)
 
                         tdTdEditar.append(buttonButtonEditarHabito)
-
+                        
                         tdTdCategoria.append(spanSpanCategoria)
 
                         labelLabelTabela.append(inputInputCheckbox, spanSpanCheckmark)
@@ -244,40 +247,61 @@ class Homepage {
                         if (elem.habit_status === true) {
                             const tr2 = document.createElement('tr')
                             tr2.classList.add('tr')
+                            
                             const tdTdCheckbox = document.createElement('td')
                             tdTdCheckbox.classList.add('td', 'td__checkbox')
+                            
                             const labelLabelTabela = document.createElement('label')
                             labelLabelTabela.classList.add('label', 'label__tabela')
+                            
                             const inputInputCheckbox = document.createElement('input')
                             inputInputCheckbox.classList.add('input', 'input__checkbox')
                             inputInputCheckbox.type = 'checkbox'
                             inputInputCheckbox.checked = 'checked'
+                            
                             const spanSpanCheckmark = document.createElement('span')
                             spanSpanCheckmark.classList.add('span', 'span__checkmark')
+                            
                             const tdTdTitulo = document.createElement('td')
                             tdTdTitulo.classList.add('td', 'td__titulo')
                             tdTdTitulo.innerText = elem.habit_title
+                            
                             const tdTdDesc = document.createElement('td')
                             tdTdDesc.classList.add('td', 'td__desc')
                             tdTdDesc.innerText = elem.habit_description
+                            
                             const tdTdCategoria = document.createElement('td')
                             tdTdCategoria.classList.add('td', 'td__categoria')
+                            
                             const spanSpanCategoria = document.createElement('span')
                             spanSpanCategoria.classList.add('span', 'span__categoria')
                             spanSpanCategoria.innerText = elem.habit_category
+                            
                             const tdTdEditar = document.createElement('td')
                             tdTdEditar.classList.add('td', 'td__editar')
+                            
                             const buttonButtonEditarHabito = document.createElement('button')
                             buttonButtonEditarHabito.classList.add('button', 'button__editar-habito')
+                            
                             const imageImageEditarHabito = document.createElement('img')
                             imageImageEditarHabito.classList.add('image', 'image__editar-habito')
                             imageImageEditarHabito.alt = 'Editar Hábito'
-                            imageImageEditarHabito.src = './src/assets/img/habitEdit.png'
+                            imageImageEditarHabito.src = '/src/assets/img/habitEdit.png'
+
+                            
                             tdTdEditar.append(buttonButtonEditarHabito)
+                            
+                            buttonButtonEditarHabito.append(imageImageEditarHabito)
+
+
                             tdTdCategoria.append(spanSpanCategoria)
+                            
                             labelLabelTabela.append(inputInputCheckbox, spanSpanCheckmark)
+                            
                             tdTdCheckbox.append(labelLabelTabela)
+                            
                             tr2.append(tdTdCheckbox, tdTdTitulo, tdTdDesc, tdTdCategoria, tdTdEditar)
+                            
                             tableTableTarefas.append(tr2)
                         }
                     })
@@ -491,9 +515,11 @@ class Homepage {
                     const imageImageEditarHabito = document.createElement('img')
                     imageImageEditarHabito.classList.add('image', 'image__editar-habito')
                     imageImageEditarHabito.alt = 'Editar Hábito'
-                    imageImageEditarHabito.src = './src/assets/img/habitEdit.png'
+                    imageImageEditarHabito.src = '/src/assets/img/habitEdit.png'
 
                     tdTdEditar.append(buttonButtonEditarHabito)
+
+                    buttonButtonEditarHabito.append(imageImageEditarHabito)
 
                     tdTdCategoria.append(spanSpanCategoria)
 
@@ -504,6 +530,14 @@ class Homepage {
                     tr2.append(tdTdCheckbox, tdTdTitulo, tdTdDesc, tdTdCategoria, tdTdEditar)
                     const tabelaTarefas = document.querySelector(".table__tarefas")
                     tabelaTarefas.append(tr2)
+
+
+                    buttonButtonEditarHabito.addEventListener("click", (e) => {
+                        e.preventDefault()
+
+                        
+                        
+                    })
                 })
             })
             .catch(erro => console.log(erro))

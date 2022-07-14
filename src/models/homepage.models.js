@@ -117,7 +117,7 @@ class Homepage {
     }
 
     static criarMain() {
-
+        this.todosHabitos()
         const body = document.querySelector("body")
         const main = document.createElement('main')
         main.classList.add('main')
@@ -144,6 +144,11 @@ class Homepage {
 
 
         buttonButtonTodos.addEventListener('click', async event => {
+            event.preventDefault()
+            /* const teste = document.querySelector(".") */
+            tableTableTarefas.innerHTML = ""
+            /* window.location.reload(true) */
+            
             return await fetch("https://habits-kenzie.herokuapp.com/api/habits", {
                 method: "GET",
                 headers: {
@@ -167,7 +172,7 @@ class Homepage {
                         const inputInputCheckbox = document.createElement('input')
                         inputInputCheckbox.classList.add('input', 'input__checkbox')
                         inputInputCheckbox.type = 'checkbox'
-                        inputInputCheckbox.checked = 'checked'
+                        inputInputCheckbox.checked = ''
 
                         const spanSpanCheckmark = document.createElement('span')
                         spanSpanCheckmark.classList.add('span', 'span__checkmark')
@@ -212,11 +217,72 @@ class Homepage {
                     })
                 })
                 .catch(erro => console.log(erro))
+
         })
+
 
         const buttonButtonConcluidos = document.createElement('button')
         buttonButtonConcluidos.classList.add('button', 'button__concluidos')
         buttonButtonConcluidos.innerText = 'Concluidos'
+
+        buttonButtonConcluidos.addEventListener('click', async event => {
+            event.preventDefault()
+
+            tableTableTarefas.innerHTML = ""
+            window.location.reload(true)
+            
+            return await fetch("https://habits-kenzie.herokuapp.com/api/habits", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${valorToken}`
+                }
+            })
+                .then(res => res.json())
+                .then(res => {
+                    const newArray = res.filter(elem => {
+                        if (elem.habit_status === true) {
+                            const tr2 = document.createElement('tr')
+                            tr2.classList.add('tr')
+                            const tdTdCheckbox = document.createElement('td')
+                            tdTdCheckbox.classList.add('td', 'td__checkbox')
+                            const labelLabelTabela = document.createElement('label')
+                            labelLabelTabela.classList.add('label', 'label__tabela')
+                            const inputInputCheckbox = document.createElement('input')
+                            inputInputCheckbox.classList.add('input', 'input__checkbox')
+                            inputInputCheckbox.type = 'checkbox'
+                            inputInputCheckbox.checked = 'checked'
+                            const spanSpanCheckmark = document.createElement('span')
+                            spanSpanCheckmark.classList.add('span', 'span__checkmark')
+                            const tdTdTitulo = document.createElement('td')
+                            tdTdTitulo.classList.add('td', 'td__titulo')
+                            tdTdTitulo.innerText = elem.habit_title
+                            const tdTdDesc = document.createElement('td')
+                            tdTdDesc.classList.add('td', 'td__desc')
+                            tdTdDesc.innerText = elem.habit_description
+                            const tdTdCategoria = document.createElement('td')
+                            tdTdCategoria.classList.add('td', 'td__categoria')
+                            const spanSpanCategoria = document.createElement('span')
+                            spanSpanCategoria.classList.add('span', 'span__categoria')
+                            spanSpanCategoria.innerText = elem.habit_category
+                            const tdTdEditar = document.createElement('td')
+                            tdTdEditar.classList.add('td', 'td__editar')
+                            const buttonButtonEditarHabito = document.createElement('button')
+                            buttonButtonEditarHabito.classList.add('button', 'button__editar-habito')
+                            const imageImageEditarHabito = document.createElement('img')
+                            imageImageEditarHabito.classList.add('image', 'image__editar-habito')
+                            imageImageEditarHabito.alt = 'Editar Hábito'
+                            imageImageEditarHabito.src = './src/assets/img/habitEdit.png'
+                            tdTdEditar.append(buttonButtonEditarHabito)
+                            tdTdCategoria.append(spanSpanCategoria)
+                            labelLabelTabela.append(inputInputCheckbox, spanSpanCheckmark)
+                            tdTdCheckbox.append(labelLabelTabela)
+                            tr2.append(tdTdCheckbox, tdTdTitulo, tdTdDesc, tdTdCategoria, tdTdEditar)
+                            tableTableTarefas.append(tr2)
+                        }
+                    })
+                })
+        })
 
         const buttonButtonCriar = document.createElement('button')
         buttonButtonCriar.classList.add('button', 'button__criar')
@@ -231,8 +297,8 @@ class Homepage {
         const tableTableTarefas = document.createElement('table')
         tableTableTarefas.classList.add('table', 'table__tarefas')
 
-        const tr = document.createElement('tr')
-        tr.classList.add('tr')
+        const tr_cabecalho = document.createElement('tr')
+        tr_cabecalho.classList.add('tr_cabecalho')
 
         const thThStatus = document.createElement('th')
         thThStatus.classList.add('th', 'th__status')
@@ -294,7 +360,7 @@ class Homepage {
         })
 
 
-        const tdTdDesc = document.createElement('td')
+        /* const tdTdDesc = document.createElement('td')
         tdTdDesc.classList.add('td', 'td__desc')
         tdTdDesc.innerText = 'Ir correr na próximaIr correr na próximaIr correr na próximaIr correr na próximaIr correr na próxima'
 
@@ -310,7 +376,7 @@ class Homepage {
 
         const buttonButtonEditarHabito = document.createElement('button')
         buttonButtonEditarHabito.classList.add('button', 'button__editar-habito')
-
+ */
         
         /* buttonButtonEditarHabito.addEventListener("click", () => {
 
@@ -338,21 +404,21 @@ class Homepage {
 
         sectionSectionButton.append(containerContainerButton)
 
-        buttonButtonEditarHabito.append(imageImageEditarHabito)
+        /* buttonButtonEditarHabito.append(imageImageEditarHabito) */
 
-        tdTdEditar.append(buttonButtonEditarHabito)
+        /* tdTdEditar.append(buttonButtonEditarHabito) */
 
-        tdTdCategoria.append(spanSpanCategoria)
+        /* tdTdCategoria.append(spanSpanCategoria) */
 
         labelLabelTabela.append(inputInputCheckbox, spanSpanCheckmark)
 
         tdTdCheckbox.append(labelLabelTabela)
 
-        tr2.append(tdTdCheckbox, tdTdTitulo, tdTdDesc, tdTdCategoria, tdTdEditar)
+        /* tr2.append(tdTdCheckbox, tdTdTitulo, tdTdDesc, tdTdCategoria, tdTdEditar) */
 
-        tr.append(thThStatus, thThTitulo, thThDesc, thThCategoria, thThEditar)
+        tr_cabecalho.append(thThStatus, thThTitulo, thThDesc, thThCategoria, thThEditar)
 
-        tableTableTarefas.append(tr, tr2)
+        tableTableTarefas.append(tr_cabecalho)
 
         containerContainerTarefasTabela.append(tableTableTarefas)
 
@@ -371,7 +437,77 @@ class Homepage {
         body.append(main)
     }
 
+    static async todosHabitos() {
 
+        return await fetch("https://habits-kenzie.herokuapp.com/api/habits", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${valorToken}`
+            }
+        })
+            .then(res => res.json())
+            .then(res => {
+                res.forEach(elem => {
+
+                    const tr2 = document.createElement('tr')
+                    tr2.classList.add('tr')
+
+                    const tdTdCheckbox = document.createElement('td')
+                    tdTdCheckbox.classList.add('td', 'td__checkbox')
+
+                    const labelLabelTabela = document.createElement('label')
+                    labelLabelTabela.classList.add('label', 'label__tabela')
+
+                    const inputInputCheckbox = document.createElement('input')
+                    inputInputCheckbox.classList.add('input', 'input__checkbox')
+                    inputInputCheckbox.type = 'checkbox'
+                    inputInputCheckbox.checked = ''
+
+                    const spanSpanCheckmark = document.createElement('span')
+                    spanSpanCheckmark.classList.add('span', 'span__checkmark')
+
+                    const tdTdTitulo = document.createElement('td')
+                    tdTdTitulo.classList.add('td', 'td__titulo')
+                    tdTdTitulo.innerText = elem.habit_title
+
+                    const tdTdDesc = document.createElement('td')
+                    tdTdDesc.classList.add('td', 'td__desc')
+                    tdTdDesc.innerText = elem.habit_description
+
+                    const tdTdCategoria = document.createElement('td')
+                    tdTdCategoria.classList.add('td', 'td__categoria')
+
+                    const spanSpanCategoria = document.createElement('span')
+                    spanSpanCategoria.classList.add('span', 'span__categoria')
+                    spanSpanCategoria.innerText = elem.habit_category
+
+                    const tdTdEditar = document.createElement('td')
+                    tdTdEditar.classList.add('td', 'td__editar')
+
+                    const buttonButtonEditarHabito = document.createElement('button')
+                    buttonButtonEditarHabito.classList.add('button', 'button__editar-habito')
+
+                    const imageImageEditarHabito = document.createElement('img')
+                    imageImageEditarHabito.classList.add('image', 'image__editar-habito')
+                    imageImageEditarHabito.alt = 'Editar Hábito'
+                    imageImageEditarHabito.src = './src/assets/img/habitEdit.png'
+
+                    tdTdEditar.append(buttonButtonEditarHabito)
+
+                    tdTdCategoria.append(spanSpanCategoria)
+
+                    labelLabelTabela.append(inputInputCheckbox, spanSpanCheckmark)
+
+                    tdTdCheckbox.append(labelLabelTabela)
+
+                    tr2.append(tdTdCheckbox, tdTdTitulo, tdTdDesc, tdTdCategoria, tdTdEditar)
+                    const tabelaTarefas = document.querySelector(".table__tarefas")
+                    tabelaTarefas.append(tr2)
+                })
+            })
+            .catch(erro => console.log(erro))
+}
 
 
 }

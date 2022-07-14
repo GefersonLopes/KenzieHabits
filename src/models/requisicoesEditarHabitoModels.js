@@ -14,6 +14,7 @@ export default class requisicoesEditarHabito {
         })
         .then(res => res.json())
         .then(res => {
+            window.location.reload(true)
             console.log(res)
         })
         .catch(err => console.log(err))

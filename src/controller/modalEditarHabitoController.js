@@ -165,7 +165,7 @@ export default class modalEditarHabito {
             const divFecharModalEditarHabito = document.querySelector(".divPegaGeral")
             divFecharModalEditarHabito.style.display = "none"
             this.recebeDados(id)
-            window.location.reload(true)
+            // window.location.reload(true)
         })
 
         // // const iconeCasa        = document.createElement("icone");

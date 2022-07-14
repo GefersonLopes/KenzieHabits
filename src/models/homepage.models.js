@@ -1,7 +1,7 @@
 import ModalEditarPerfil from "../controller/modalEditarPerfil.controller.js";
 import ModalExcluir from "../controller/modalExcluir.controller.js";
 
-
+const valorToken = JSON.parse(localStorage.getItem("@kenzie-capstone:token"))
 class Homepage {
     static menuMudarPerfil() {
         const body = document.querySelector("body")
@@ -19,7 +19,6 @@ class Homepage {
         btnEditarPerfil.innerText = "Editar perfil"
 
         btnEditarPerfil.append(imgBoneco)
-
 
         const btnFazerLogout = document.createElement("button")
         btnFazerLogout.classList.add("logout")
@@ -43,10 +42,10 @@ class Homepage {
             localStorage.clear()
         })
 
-
     }
 
     static criarHeader() {
+
         const body = document.querySelector("body");
 
         const header = document.createElement("header");
@@ -109,7 +108,6 @@ class Homepage {
         header.appendChild(divContainerUsuario);
         body.appendChild(header);
 
-
         buttonUsuario.addEventListener("click", () => {
             this.menuMudarPerfil()
 
@@ -119,6 +117,7 @@ class Homepage {
     }
 
     static criarMain() {
+
         const body = document.querySelector("body")
         const main = document.createElement('main')
         main.classList.add('main')
@@ -142,6 +141,78 @@ class Homepage {
         const buttonButtonTodos = document.createElement('button')
         buttonButtonTodos.classList.add('button', 'button__todos')
         buttonButtonTodos.innerText = 'Todos'
+
+
+        buttonButtonTodos.addEventListener('click', async event => {
+            return await fetch("https://habits-kenzie.herokuapp.com/api/habits", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${valorToken}`
+                }
+            })
+                .then(res => res.json())
+                .then(res => {
+                    res.forEach(elem => {
+
+                        const tr2 = document.createElement('tr')
+                        tr2.classList.add('tr')
+
+                        const tdTdCheckbox = document.createElement('td')
+                        tdTdCheckbox.classList.add('td', 'td__checkbox')
+
+                        const labelLabelTabela = document.createElement('label')
+                        labelLabelTabela.classList.add('label', 'label__tabela')
+
+                        const inputInputCheckbox = document.createElement('input')
+                        inputInputCheckbox.classList.add('input', 'input__checkbox')
+                        inputInputCheckbox.type = 'checkbox'
+                        inputInputCheckbox.checked = 'checked'
+
+                        const spanSpanCheckmark = document.createElement('span')
+                        spanSpanCheckmark.classList.add('span', 'span__checkmark')
+
+                        const tdTdTitulo = document.createElement('td')
+                        tdTdTitulo.classList.add('td', 'td__titulo')
+                        tdTdTitulo.innerText = elem.habit_title
+
+                        const tdTdDesc = document.createElement('td')
+                        tdTdDesc.classList.add('td', 'td__desc')
+                        tdTdDesc.innerText = elem.habit_description
+
+                        const tdTdCategoria = document.createElement('td')
+                        tdTdCategoria.classList.add('td', 'td__categoria')
+
+                        const spanSpanCategoria = document.createElement('span')
+                        spanSpanCategoria.classList.add('span', 'span__categoria')
+                        spanSpanCategoria.innerText = elem.habit_category
+
+                        const tdTdEditar = document.createElement('td')
+                        tdTdEditar.classList.add('td', 'td__editar')
+
+                        const buttonButtonEditarHabito = document.createElement('button')
+                        buttonButtonEditarHabito.classList.add('button', 'button__editar-habito')
+
+                        const imageImageEditarHabito = document.createElement('img')
+                        imageImageEditarHabito.classList.add('image', 'image__editar-habito')
+                        imageImageEditarHabito.alt = 'Editar Hábito'
+                        imageImageEditarHabito.src = './src/assets/img/habitEdit.png'
+
+                        tdTdEditar.append(buttonButtonEditarHabito)
+
+                        tdTdCategoria.append(spanSpanCategoria)
+
+                        labelLabelTabela.append(inputInputCheckbox, spanSpanCheckmark)
+
+                        tdTdCheckbox.append(labelLabelTabela)
+
+                        tr2.append(tdTdCheckbox, tdTdTitulo, tdTdDesc, tdTdCategoria, tdTdEditar)
+
+                        tableTableTarefas.append(tr2)
+                    })
+                })
+                .catch(erro => console.log(erro))
+        })
 
         const buttonButtonConcluidos = document.createElement('button')
         buttonButtonConcluidos.classList.add('button', 'button__concluidos')
@@ -273,6 +344,9 @@ class Homepage {
 
         body.append(main)
     }
+
+
+
 
 }
 

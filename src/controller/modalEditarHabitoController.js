@@ -1,4 +1,6 @@
-// import requisicoesEditarHabito from "../models/requisicoesEditarHabitoModels.js";
+import ModalExcluir from "./modalExcluir.controller.js";
+
+import requisicoesEditarHabito from "../models/requisicoesEditarHabitoModels.js";
 
 export default class modalEditarHabito {
     static body = document.querySelector("body");
@@ -26,13 +28,15 @@ export default class modalEditarHabito {
             "habit_category": categoria,
             "habit_status": status
         }
-    
+        
+        /* requisicoesEditarHabito.salvaAlteracoes(dadosRequisicao) */
         console.log(dadosRequisicao)
     }
     
 
     static criarModalEditarHabito(id, token) {
 
+        const divPegaGeral      = document.createElement("div");
         const divEditarHabito   = document.createElement("div");
         const divCorpoModal     = document.createElement("div");
         const divCabecalhoModal = document.createElement("div");
@@ -44,6 +48,7 @@ export default class modalEditarHabito {
         const subDivStatus      = document.createElement("div");
         const divBotoes         = document.createElement("div");
 
+        divPegaGeral.classList.add("divPegaGeral")
         divEditarHabito.id = "editar-habito";
         divCorpoModal.classList.add("corpo-model-editar");
         divCabecalhoModal.classList.add("cabecalho-model-editar");
@@ -144,7 +149,9 @@ export default class modalEditarHabito {
         botaoExcluir.innerText = "Excluir";
         botaoExcluir.addEventListener("click", el => {
             el.preventDefault();
-            // editarHabito.excluirHabito(token);
+            /* --------editarHabito.excluirHabito(token);======== */
+            ModalExcluir.modalExcluir()
+            divPegaGeral.style.display = "none"
             
         });
 
@@ -153,7 +160,8 @@ export default class modalEditarHabito {
         botaoSalvar.innerText = "Salvar alterações";
         botaoSalvar.addEventListener("click", el => {
             el.preventDefault();
-            recebeDados(id);
+            /* requisicoesEditarHabito.salvaAlteracoes(id); */
+            this.recebeDados()
         })
 
         // // const iconeCasa        = document.createElement("icone");
@@ -189,7 +197,7 @@ export default class modalEditarHabito {
         // imgSaude.classList.add("image-options");
 
 
-        this.body.append(divEditarHabito);
+        this.body.append(divPegaGeral);
 
         divEditarHabito.append(divCorpoModal);
 
@@ -206,7 +214,11 @@ export default class modalEditarHabito {
         subDivStatus.append(labelStatus, inputStatus);
         divBotoes.append(botaoExcluir, botaoSalvar);
 
+        divPegaGeral.append(divEditarHabito)
+
         selectCategoria.append(optionCategoria, optionCasa, optionEstudo, optionLazer, optionTrabalho, optionSaude);
+        
+        divPegaGeral.style.display = "none"
 
         // optionCasa.append(iconeCasa);
         // optionEstudo.append(iconeEstudo);

@@ -195,7 +195,9 @@ class Homepage {
         const inputInputCheckbox = document.createElement('input')
         inputInputCheckbox.classList.add('input', 'input__checkbox')
         inputInputCheckbox.type = 'checkbox'
-        inputInputCheckbox.checked = 'checked'
+        inputInputCheckbox.checked = ''
+
+        
         
         const spanSpanCheckmark = document.createElement('span')
         spanSpanCheckmark.classList.add('span', 'span__checkmark')
@@ -204,6 +206,16 @@ class Homepage {
         tdTdTitulo.classList.add('td', 'td__titulo')
         tdTdTitulo.innerText = 'Fazer exercícios segunda pela manhãFazer exercícios segunda pela manhãFazer exercícios segunda pela manhãFazer exercícios segunda pela manhãFazer exercícios segunda pela manhã'
         
+        inputInputCheckbox.addEventListener("click", () => {
+            if(inputInputCheckbox.checked !== "checked") {
+                
+                tdTdTitulo.style.textDecoration = "line-through"
+            } else {
+                tdTdTitulo.style.color = "red"
+
+            }
+        })
+
         const tdTdDesc = document.createElement('td')
         tdTdDesc.classList.add('td', 'td__desc')
         tdTdDesc.innerText = 'Ir correr na próximaIr correr na próximaIr correr na próximaIr correr na próximaIr correr na próxima'
@@ -221,6 +233,11 @@ class Homepage {
         const buttonButtonEditarHabito = document.createElement('button')
         buttonButtonEditarHabito.classList.add('button', 'button__editar-habito')
         
+        /* buttonButtonEditarHabito.addEventListener("click", () => {
+
+        }) */
+
+
         const imageImageEditarHabito = document.createElement('img')
         imageImageEditarHabito.classList.add('image', 'image__editar-habito')
         imageImageEditarHabito.alt = 'Editar Hábito'

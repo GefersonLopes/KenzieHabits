@@ -5,7 +5,6 @@ import Homepage from "../models/homepage.models.js"
 export default class ModalEditarPerfil {
 
     static body = document.querySelector('body')
-    static valorToken = JSON.parse(localStorage.getItem("@kenzie-capstone:token"))
 
     static async editarPerfilNaApi(dadosParaAlterar) {
         return await fetch("https://habits-kenzie.herokuapp.com/api/user/profile", {

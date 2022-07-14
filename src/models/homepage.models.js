@@ -57,24 +57,24 @@ class Homepage {
         const divLogoUsuarioHeader = document.createElement("div");
         divLogoUsuarioHeader.classList.add("container", "container__logo-usuario-header");
 
-        const figureLogo = document.createElement("figure");
+        const iconeLogo = document.createElement("icone");
         const imgLogo = document.createElement("img");
         imgLogo.src = "/src/assets/img/logoKenzieHabit.png";
         imgLogo.alt = "Logo KenzieHub";
         imgLogo.classList.add("image", "image__logo");
-        figureLogo.appendChild(imgLogo);
+        iconeLogo.appendChild(imgLogo);
 
         const buttonUsuario = document.createElement("button");
         buttonUsuario.classList.add("button", "button__usuario");
-        const figureUsuario = document.createElement("figure");
+        const iconeUsuario = document.createElement("icone");
         const imgUsuario = document.createElement("img");
         imgUsuario.src = JSON.parse(localStorage.getItem("@kenzie-capstone:userFoto"));
         imgUsuario.alt = "Imagem de Perfil";
         imgUsuario.classList.add("image", "image__usuario");
-        figureUsuario.appendChild(imgUsuario);
-        buttonUsuario.appendChild(figureUsuario);
+        iconeUsuario.appendChild(imgUsuario);
+        buttonUsuario.appendChild(iconeUsuario);
 
-        divLogoUsuarioHeader.append(figureLogo, buttonUsuario);
+        divLogoUsuarioHeader.append(iconeLogo, buttonUsuario);
         divLogoUsuario.append(divLogoUsuarioHeader);
         header.appendChild(divLogoUsuario);
 
@@ -84,12 +84,12 @@ class Homepage {
         const divContainerUsuarioHeader = document.createElement("div");
         divContainerUsuarioHeader.classList.add("container", "container__usuario-header");
 
-        const figureUsuarioHeader = document.createElement("figure");
+        const iconeUsuarioHeader = document.createElement("icone");
         const imgUsuarioHeader = document.createElement("img");
         imgUsuarioHeader.src = JSON.parse(localStorage.getItem("@kenzie-capstone:userFoto"));
         imgUsuarioHeader.alt = "Imagem do Usuario";
         imgUsuarioHeader.classList.add("image", "image__usuario-2");
-        figureUsuarioHeader.appendChild(imgUsuarioHeader);
+        iconeUsuarioHeader.appendChild(imgUsuarioHeader);
 
         const divContainerUsuarioInfo = document.createElement("div");
         divContainerUsuarioInfo.classList.add("container", "container__usuario-info");
@@ -103,7 +103,7 @@ class Homepage {
         pUsuarioInfo.innerText = "Estudante de Programação";
 
         divContainerUsuarioInfo.append(h4Nome, pUsuarioInfo);
-        divContainerUsuarioHeader.append(figureUsuarioHeader, divContainerUsuarioInfo)
+        divContainerUsuarioHeader.append(iconeUsuarioHeader, divContainerUsuarioInfo)
         divContainerUsuario.appendChild(divContainerUsuarioHeader);
         header.appendChild(divContainerUsuario);
         body.appendChild(header);

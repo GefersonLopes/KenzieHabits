@@ -7,7 +7,7 @@ class Homepage {
         const body = document.querySelector("body")
         const divContainer = document.createElement("div")
         divContainer.classList.add("menuOpen")
-        
+
         const imgTriangulo = document.createElement("img")
         imgTriangulo.src = "/src/assets/img/Polygon 1.png"
         imgTriangulo.classList.add("triangulo")
@@ -42,7 +42,7 @@ class Homepage {
             window.location.href = "/index.html"
             localStorage.clear()
         })
-        
+
 
     }
 
@@ -112,170 +112,249 @@ class Homepage {
 
         buttonUsuario.addEventListener("click", () => {
             this.menuMudarPerfil()
-            
+
         })
 
         return header;
+    }
+
+    static async requisicaoLerHabitos() {
+
+        return await fetch("https://habits-kenzie.herokuapp.com/api/habits", {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("@kenzie-capstone:token"))}`
+            }
+        })
+            .then(obj => obj.json())
+            .then(res => {
+                //console.log(res)
+                return res;
+            })
+            .catch(err => console.log(err))
+
     }
 
     static criarMain() {
         const body = document.querySelector("body")
         const main = document.createElement('main')
         main.classList.add('main')
-        
+
         const containerContainerTarefas = document.createElement('div')
         containerContainerTarefas.classList.add('container', 'container__tarefas')
-        
+
         const sectionSectionTarefasHeader = document.createElement('section')
         sectionSectionTarefasHeader.classList.add('section', 'section__tarefas-header')
-        
+
         const containerContainerTarefasHeader = document.createElement('div')
         containerContainerTarefasHeader.classList.add('container', 'container__tarefas-header')
-        
+
         const h4h4TarefasTitulo = document.createElement('h4')
         h4h4TarefasTitulo.classList.add('h4', 'h4__tarefas-titulo')
         h4h4TarefasTitulo.innerText = 'Tarefas'
-        
+
         const containerContainerTarefasBotoes = document.createElement('div')
         containerContainerTarefasBotoes.classList.add('container', 'container__tarefas-botoes')
-        
+
         const buttonButtonTodos = document.createElement('button')
         buttonButtonTodos.classList.add('button', 'button__todos')
         buttonButtonTodos.innerText = 'Todos'
-        
+
         const buttonButtonConcluidos = document.createElement('button')
         buttonButtonConcluidos.classList.add('button', 'button__concluidos')
         buttonButtonConcluidos.innerText = 'Concluidos'
-        
+
         const buttonButtonCriar = document.createElement('button')
         buttonButtonCriar.classList.add('button', 'button__criar')
         buttonButtonCriar.innerText = 'Criar'
-        
+
         const sectionSectionTarefasTabela = document.createElement('section')
         sectionSectionTarefasTabela.classList.add('section', 'section__tarefas-tabela')
-        
+
         const containerContainerTarefasTabela = document.createElement('div')
         containerContainerTarefasTabela.classList.add('container', 'container__tarefas-tabela')
-        
+
         const tableTableTarefas = document.createElement('table')
         tableTableTarefas.classList.add('table', 'table__tarefas')
-        
+
         const tr = document.createElement('tr')
         tr.classList.add('tr')
-        
+
         const thThStatus = document.createElement('th')
         thThStatus.classList.add('th', 'th__status')
         thThStatus.innerText = 'Status'
-        
+
         const thThTitulo = document.createElement('th')
         thThTitulo.classList.add('th', 'th__titulo')
         thThTitulo.innerText = 'Título'
-        
+
         const thThDesc = document.createElement('th')
         thThDesc.classList.add('th', 'th__desc')
         thThDesc.innerText = 'Descrição'
-        
+
         const thThCategoria = document.createElement('th')
         thThCategoria.classList.add('th', 'th__categoria')
         thThCategoria.innerText = 'Categoria'
-        
+
         const thThEditar = document.createElement('th')
         thThEditar.classList.add('th', 'th__editar')
         thThEditar.innerText = 'Editar'
-        
+
         const tr2 = document.createElement('tr')
         tr2.classList.add('tr')
-        
+
         const tdTdCheckbox = document.createElement('td')
         tdTdCheckbox.classList.add('td', 'td__checkbox')
-        
+
         const labelLabelTabela = document.createElement('label')
         labelLabelTabela.classList.add('label', 'label__tabela')
-        
+
         const inputInputCheckbox = document.createElement('input')
         inputInputCheckbox.classList.add('input', 'input__checkbox')
         inputInputCheckbox.type = 'checkbox'
         inputInputCheckbox.checked = 'checked'
-        
+
         const spanSpanCheckmark = document.createElement('span')
         spanSpanCheckmark.classList.add('span', 'span__checkmark')
-        
+
         const tdTdTitulo = document.createElement('td')
         tdTdTitulo.classList.add('td', 'td__titulo')
         tdTdTitulo.innerText = 'Fazer exercícios segunda pela manhãFazer exercícios segunda pela manhãFazer exercícios segunda pela manhãFazer exercícios segunda pela manhãFazer exercícios segunda pela manhã'
-        
+
         const tdTdDesc = document.createElement('td')
         tdTdDesc.classList.add('td', 'td__desc')
         tdTdDesc.innerText = 'Ir correr na próximaIr correr na próximaIr correr na próximaIr correr na próximaIr correr na próxima'
-        
+
         const tdTdCategoria = document.createElement('td')
         tdTdCategoria.classList.add('td', 'td__categoria')
-        
+
         const spanSpanCategoria = document.createElement('span')
         spanSpanCategoria.classList.add('span', 'span__categoria')
         spanSpanCategoria.innerText = 'Saúde'
-        
+
         const tdTdEditar = document.createElement('td')
         tdTdEditar.classList.add('td', 'td__editar')
-        
+
         const buttonButtonEditarHabito = document.createElement('button')
         buttonButtonEditarHabito.classList.add('button', 'button__editar-habito')
-        
+
         const imageImageEditarHabito = document.createElement('img')
         imageImageEditarHabito.classList.add('image', 'image__editar-habito')
         imageImageEditarHabito.alt = 'Editar Hábito'
         imageImageEditarHabito.src = '/src/assets/img/habitEdit.png'
-        
+
         const sectionSectionButton = document.createElement('section')
         sectionSectionButton.classList.add('section', 'section__button')
-        
+
         const containerContainerButton = document.createElement('div')
         containerContainerButton.classList.add('container', 'container__button')
-        
+
         const buttonButtonCarregar = document.createElement('button')
         buttonButtonCarregar.classList.add('button', 'button__carregar')
         buttonButtonCarregar.innerText = 'Carregar Mais'
-        
-        
+
+
         containerContainerButton.append(buttonButtonCarregar)
-        
+
         sectionSectionButton.append(containerContainerButton)
-        
+
         buttonButtonEditarHabito.append(imageImageEditarHabito)
-        
+
         tdTdEditar.append(buttonButtonEditarHabito)
-        
+
         tdTdCategoria.append(spanSpanCategoria)
-        
+
         labelLabelTabela.append(inputInputCheckbox, spanSpanCheckmark)
-        
+
         tdTdCheckbox.append(labelLabelTabela)
-        
+
         tr2.append(tdTdCheckbox, tdTdTitulo, tdTdDesc, tdTdCategoria, tdTdEditar)
-        
+
         tr.append(thThStatus, thThTitulo, thThDesc, thThCategoria, thThEditar)
-        
+
         tableTableTarefas.append(tr, tr2)
-        
+
         containerContainerTarefasTabela.append(tableTableTarefas)
-        
+
         sectionSectionTarefasTabela.append(containerContainerTarefasTabela)
-        
+
         containerContainerTarefasBotoes.append(buttonButtonTodos, buttonButtonConcluidos, buttonButtonCriar)
-        
+
         containerContainerTarefasHeader.append(h4h4TarefasTitulo, containerContainerTarefasBotoes)
-        
+
         sectionSectionTarefasHeader.append(containerContainerTarefasHeader)
-        
+
         containerContainerTarefas.append(sectionSectionTarefasHeader, sectionSectionTarefasTabela, sectionSectionButton)
-        
+
         main.append(containerContainerTarefas)
-        
+
         body.append(main)
     }
 
-    
+    static async criarTrs() {
+
+        const array_habitos = await Homepage.requisicaoLerHabitos();
+        const table = document.querySelector(".table__tarefas");
+
+        array_habitos.forEach(element => {
+            console.log(element)
+
+            console.log(table)
+
+            const tr = document.createElement("tr");
+
+            const trCheckbox = document.createElement("tr");
+            const trTitulo = document.createElement("tr");
+            const trDescricao = document.createElement("tr");
+            const trCategoria = document.createElement("tr");
+            const trEditar = document.createElement("tr");
+
+            const label = document.createElement("label");
+
+            const input = document.createElement("input");
+            const spanLabel = document.createElement("span");
+
+            const span = document.createElement("span");
+            const button = document.createElement("button");
+            const img = document.createElement("img");
+
+            tr.classList = "tr";
+
+            trCheckbox.classList = "td td__checkbox";
+            trTitulo.classList = "td td__titulo";
+            trDescricao.classList = "td td__desc";
+            trCategoria.classList = "td td__categoria";
+            trEditar.classList = "td td__editar";
+
+            label.classList = "label label__tabela";
+            input.classList = "input input__checkbox";
+            spanLabel.classList = "span span__checkmark";
+
+            span.classList = "span span__categoria";
+            button.classList = "button button__editar-habito";
+            img.classList = "image image__editar-habito";
+
+            input.type = "checkbox";
+            trTitulo.append(element.habit_title);
+            trDescricao.append(element.habit_description);
+            span.innerText = element.habit_category;
+
+            img.src = "/src/assets/img/habitEdit.png";
+            img.alt = "editar hábito";
+
+            table.appendChild(tr);
+            tr.append(trCheckbox, trTitulo, trDescricao, trCategoria, trEditar);
+            trCheckbox.append(label);
+            label.append(input,spanLabel);
+            trCategoria.append(span);
+            trEditar.append(button);
+            button.append(img);
+        });
+
+    }
 
 }
 
 export default Homepage;
+Homepage.criarTrs();

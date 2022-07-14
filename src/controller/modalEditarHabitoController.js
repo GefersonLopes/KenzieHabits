@@ -152,7 +152,7 @@ export default class modalEditarHabito {
         botaoExcluir.addEventListener("click", el => {
             el.preventDefault();
             /* --------editarHabito.excluirHabito(token);======== */
-            ModalExcluir.modalExcluir()
+            ModalExcluir.modalExcluir(id)
             divPegaGeral.style.display = "none"
             
         });

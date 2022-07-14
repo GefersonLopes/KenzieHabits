@@ -1,8 +1,9 @@
 export default class ModalExcluir {
     static body = document.querySelector('body')
+    static valorToken = JSON.parse(localStorage.getItem("@kenzie-capstone:token"))
 
     static async excluirDaApi(idDoHabito) {
-        return await fetch(`https://habits-kenzie.herokuapp.com/api/habits/:${idDoHabito}`, {
+        return await fetch(`https://habits-kenzie.herokuapp.com/api/habits/${idDoHabito}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "Application/json",
@@ -10,11 +11,10 @@ export default class ModalExcluir {
             }
         })
             .then(res => res.json())
-            .then(res => alert(res))
             .catch(erro => console.log(erro))
     }
 
-    static modalExcluir() {
+    static async modalExcluir(id) {
 
         const corpoPrincipalModalExcluir = document.createElement('div')
         corpoPrincipalModalExcluir.id = 'corpo'
@@ -67,7 +67,9 @@ export default class ModalExcluir {
         confirmar.innerText = 'Sim, excluir este hábito'
 
         confirmar.addEventListener('click', async event => {
-            this.excluirDaApi()
+            await this.excluirDaApi(id)
+            corpoPrincipalModalExcluir.style.display = 'none'
+            window.location.reload(true);
         })
 
         botoesExcluir.append(cancelar, confirmar)

@@ -161,7 +161,7 @@ class Homepage {
                 .then(res => res.json())
                 .then(res => {
                     res.forEach(elem => {
-
+                        console.log(elem)
                         const tr2 = document.createElement('tr')
                         tr2.classList.add('tr')
 
@@ -200,6 +200,9 @@ class Homepage {
                         const buttonButtonEditarHabito = document.createElement('button')
                         buttonButtonEditarHabito.classList.add('button', 'button__editar-habito')
 
+                        buttonButtonEditarHabito.setAttribute("id", elem.habit_id)
+
+                        console.log(buttonButtonEditarHabito)
                         const imageImageEditarHabito = document.createElement('img')
                         imageImageEditarHabito.classList.add('image', 'image__editar-habito')
                         imageImageEditarHabito.alt = 'Editar Hábito'
@@ -218,6 +221,14 @@ class Homepage {
                         tr2.append(tdTdCheckbox, tdTdTitulo, tdTdDesc, tdTdCategoria, tdTdEditar)
 
                         tableTableTarefas.append(tr2)
+
+                        buttonButtonEditarHabito.addEventListener("click", (e) => {
+                            e.preventDefault()
+                            modalEditarHabito.criarModalEditarHabito()
+                            const divGeralModalEditarHabito = document.querySelector(".divPegaGeral")
+                            divGeralModalEditarHabito.style.display = "flex"
+                            
+                        })
                     })
                 })
                 .catch(erro => console.log(erro))
@@ -295,7 +306,9 @@ class Homepage {
                             
                             buttonButtonEditarHabito.append(imageImageEditarHabito)
 
+                            buttonButtonEditarHabito.setAttribute("id", elem.habit_id)
 
+                            console.log(buttonButtonEditarHabito)
                             tdTdCategoria.append(spanSpanCategoria)
                             
                             labelLabelTabela.append(inputInputCheckbox, spanSpanCheckmark)
@@ -305,6 +318,14 @@ class Homepage {
                             tr2.append(tdTdCheckbox, tdTdTitulo, tdTdDesc, tdTdCategoria, tdTdEditar)
                             
                             tableTableTarefas.append(tr2)
+
+                            buttonButtonEditarHabito.addEventListener("click", (e) => {
+                                e.preventDefault()
+                                modalEditarHabito.criarModalEditarHabito()
+                                const divGeralModalEditarHabito = document.querySelector(".divPegaGeral")
+                                divGeralModalEditarHabito.style.display = "flex"
+                                
+                            })
                         }
                     })
                 })
@@ -522,6 +543,10 @@ class Homepage {
                     tdTdEditar.append(buttonButtonEditarHabito)
 
                     buttonButtonEditarHabito.append(imageImageEditarHabito)
+                    
+                    buttonButtonEditarHabito.setAttribute("id", elem.habit_id)
+
+                    console.log(buttonButtonEditarHabito)
 
                     tdTdCategoria.append(spanSpanCategoria)
 
@@ -536,7 +561,7 @@ class Homepage {
 
                     buttonButtonEditarHabito.addEventListener("click", (e) => {
                         e.preventDefault()
-                        modalEditarHabito.criarModalEditarHabito()
+                        modalEditarHabito.criarModalEditarHabito(elem.habit_id)
                         const divGeralModalEditarHabito = document.querySelector(".divPegaGeral")
                         divGeralModalEditarHabito.style.display = "flex"
                         

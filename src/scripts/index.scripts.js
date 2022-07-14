@@ -6,4 +6,4 @@ Homepage.criarHeader()
 
 Homepage.criarMain()
 Construção.criarHabitos();
-Homepage.todosHabitos()
+/* Homepage.todosHabitos() */

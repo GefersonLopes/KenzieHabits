@@ -1,6 +1,6 @@
 export default class requisicoesEditarHabito {
     static url = "https://habits-kenzie.herokuapp.com/api/habits";
-    static token = JSON.parse(localStorage.getItem("@kenzie-capstone:token"));
+
     static headers = {
         "Content-Type": "aplication/json",
         "Authorization": `Bearer ${token}`

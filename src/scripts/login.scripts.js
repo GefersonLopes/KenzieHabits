@@ -10,6 +10,7 @@ import ModalEditarPerfil from "../controller/modalEditarPerfil.controller.js";
 
 componentesDomLogin.paginaDomLogin()
 
+
 const btnFormulario = document.querySelector(".formLogin")
 
 btnFormulario.addEventListener("submit", (e) => {

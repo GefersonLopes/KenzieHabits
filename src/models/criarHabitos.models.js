@@ -2,7 +2,7 @@ export class Construção {
 
     static criarHabitos() {
 
-        const btnAdicionar = document.querySelector("button");
+        const btnAdicionar = document.querySelector(".button__criar");
 
         btnAdicionar.addEventListener("click", () => {
 
@@ -29,6 +29,12 @@ export class Construção {
             const select = document.createElement("select");
             const option = document.createElement("option");
 
+            const optionSaude = document.createElement("option");
+            const optionEstudos = document.createElement("option");
+            const optionCasa = document.createElement("option");
+            const optionTrabalho = document.createElement("option");
+            const optionLazer = document.createElement("option");
+
             const buttonInserir = document.createElement("button");
 
             divMae.classList = "divMae";
@@ -45,10 +51,16 @@ export class Construção {
             labelCategoria.classList = "title";
             select.classList = "inputs";
             option.classList = "inputs";
+            optionSaude.classList = "inputs";
+            optionEstudos.classList = "inputs";
+            optionCasa.classList = "inputs";
+            optionTrabalho.classList = "inputs";
+            optionLazer.classList = "inputs";
+
             buttonInserir.classList = "btn_inserir";
 
             h4.innerText = "Criar hábito";
-            img.src = "./src/img/icons/btn_close.png";
+            img.src = "../src/img/icons/btn_close.png";
             img.alt = "fechar";
             labelTitle.innerText = "Título";
             inputTitulo.placeholder = "Digitar título";
@@ -59,9 +71,15 @@ export class Construção {
             labelCategoria.innerText = "Categoria";
             select.name = "seletor";
             option.innerText = "Selecionar categoria";
+            optionSaude.innerText = "saude";
+            optionEstudos.innerText = "estudos";
+            optionCasa.innerText = "casa";
+            optionTrabalho.innerText = "trabalho";
+            optionLazer.innerText = "lazer";
+
             buttonInserir.innerText = "Inserir";
 
-            select.append(option);
+            select.append(option,optionSaude,optionEstudos,optionCasa,optionTrabalho,optionLazer);
             labelText.append(textArea);
             labelCategoria.append(select);
             labelTitle.append(inputTitulo);
@@ -86,7 +104,7 @@ export class Construção {
         const model = document.querySelector(".modelCriar_habito");
         const divMae = document.querySelector(".divMae");
 
-        
+
         model.classList = "";
         model.remove();
         divMae.classList = "";
@@ -97,26 +115,52 @@ export class Construção {
 
         const form = document.querySelector(".form_criarHabito")
         let elementosForm = form.elements;
-        
+
         form.addEventListener("submit", (e) => {
-            
-            
+
+
             e.preventDefault();
             let dados = "";
 
             for (let i = 0; i < elementosForm.length - 1; i++) {
                 dados = {
-                    titulo: elementosForm[0].value,
-                    descrição: elementosForm[1].value,
-                    area: elementosForm[2].value,
+                    "habit_title": elementosForm[0].value,
+                    "habit_description": elementosForm[1].value,
+                    "habit_category": elementosForm[2].value,
                 }
 
             }
             console.log(dados);
+            localStorage.setItem("@kenzie-capstone:criar", JSON.stringify(dados));
+            criarCardHabito.requisicao();
             Construção.fechar();
-            
+
         })
-        
+
+    }
+
+}
+
+export class criarCardHabito {
+    static url = "https://habits-kenzie.herokuapp.com/api/habits";
+
+    static async requisicao() {
+
+        return await fetch(criarCardHabito.url, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("@kenzie-capstone:token"))}`
+            },
+            body: JSON.stringify(JSON.parse(localStorage.getItem("@kenzie-capstone:criar")))
+        })
+            .then(obj => obj.json())
+            .then(res => {
+                console.log(res);
+                return res;
+            })
+            .catch(err => console.log("deu erro ao criar hábito " + err))
+
     }
 
 }

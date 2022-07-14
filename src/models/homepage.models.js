@@ -41,6 +41,7 @@ class Homepage {
             window.location.href = "/index.html"
             localStorage.clear()
         })
+
     }
 
     static criarHeader() {
@@ -140,6 +141,7 @@ class Homepage {
         const buttonButtonTodos = document.createElement('button')
         buttonButtonTodos.classList.add('button', 'button__todos')
         buttonButtonTodos.innerText = 'Todos'
+
 
         buttonButtonTodos.addEventListener('click', async event => {
             return await fetch("https://habits-kenzie.herokuapp.com/api/habits", {
@@ -305,6 +307,7 @@ class Homepage {
         buttonButtonCarregar.classList.add('button', 'button__carregar')
         buttonButtonCarregar.innerText = 'Carregar Mais'
 
+
         containerContainerButton.append(buttonButtonCarregar)
 
         sectionSectionButton.append(containerContainerButton)
@@ -341,6 +344,7 @@ class Homepage {
 
         body.append(main)
     }
+
 
 
 

@@ -1,6 +1,7 @@
 import modalEditarHabito from "../controller/modalEditarHabitoController.js";
 import ModalEditarPerfil from "../controller/modalEditarPerfil.controller.js";
 import ModalExcluir from "../controller/modalExcluir.controller.js";
+import requisicoesEditarHabito from "./requisicoesEditarHabitoModels.js";
 
 
 const valorToken = JSON.parse(localStorage.getItem("@kenzie-capstone:token"))
@@ -250,6 +251,10 @@ class Homepage {
                         inputInputCheckbox.classList.add('input__checkbox')
                         inputInputCheckbox.type = 'checkbox'
                         inputInputCheckbox.checked = ''
+                        /* inputInputCheckbox.onclick = requisicoesEditarHabito.atualizaStatus(elem.habit_id) */
+                        
+                        
+
 
                         const spanSpanCheckmark = document.createElement('span')
                         spanSpanCheckmark.classList.add('span', 'span__checkmark')
@@ -297,8 +302,12 @@ class Homepage {
 
                         tableTableTarefas.append(tr2)
 
-
-
+                        if(elem.habit_status === true) {
+                            tdTdTitulo.style.textDecoration = "line-through";
+                            inputInputCheckbox.checked = "checked"
+                        } else {
+                            tdTdTitulo.style.textDecoration = "none";
+                        }
 
 
                         buttonButtonEditarHabito.addEventListener("click", (e) => {
@@ -513,16 +522,6 @@ class Homepage {
         tdTdTitulo.classList.add('td', 'td__titulo')
         tdTdTitulo.innerText = 'Fazer exercícios segunda pela manhãFazer exercícios segunda pela manhãFazer exercícios segunda pela manhãFazer exercícios segunda pela manhãFazer exercícios segunda pela manhã'
 
-        
-        inputInputCheckbox.addEventListener("click", () => {
-            if(inputInputCheckbox.checked !== "checked") {
-                
-                tdTdTitulo.style.textDecoration = "line-through"
-            } else {
-                tdTdTitulo.style.color = "red"
-
-            }
-        })
 
 
         /* const tdTdDesc = document.createElement('td')

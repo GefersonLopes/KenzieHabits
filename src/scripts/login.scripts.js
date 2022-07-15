@@ -19,7 +19,7 @@ btnFormulario.addEventListener("submit", (e) => {
     if(JSON.parse(localStorage.getItem("@kenzie-capstone:token")) === null){
         alert("aqui nao!")
     } else if(JSON.parse(localStorage.getItem("@kenzie-capstone:token")) !== null) {
-        window.location.href = "/temp/testando.html"
+        window.location.href = "/temp/homePage.html"
     }
 })
 

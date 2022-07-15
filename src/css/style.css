@@ -470,3 +470,7 @@
 button:hover {
     box-shadow: 0px 0px 4px rgba(00, 00, 00, 0.5);
 }
+
+.tr:hover {
+    background-color: rgba(var(--color-grey-4), 0.7);
+}

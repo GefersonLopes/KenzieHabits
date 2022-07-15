@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KenzieHabit</title>
+
+    <link rel="stylesheet" href="/src/css/base.css">
+    <link rel="stylesheet" href="/src/css/reset.css">
+    <link rel="stylesheet" href="/src/css/componentes.css">
+    <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="../src/css/editarPerfil.css">
+    <link rel="stylesheet" href="../src/css/menuTrocarUsuario.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container container__logo-usuario">
+            <div class="container container__logo-usuario-header">
+                <icone><img src="../assets/img/logoKenzieHabit.png" alt="Logo KenzieHabit" class="image image__logo"></icone>
+                <button class="button button__usuario"><icone><img src="../src/assets/img/bernese-p.webp" alt="placeholder" class="image image__usuario"></icone></button>
+            </div>
+        </div>
+        <div class="container container__usuario">
+            <div class="container container__usuario-header">
+                <icone><img src="../assets/temp/user.placeholder.aleatorio.png" alt="placeholder" class="image image__usuario-2"></icone>
+                <div class="container container__usuario-info">
+                    <h4 class="h4 h4__nome">Júlia Silva Camargo</h4>
+                    <p class="p p__usuario-info">Estudante de Programação</p>
+                </div>
+            </div>
+        </div>
+        <div class="fundo">
+            <div class="setarPosicao">
+                <div class="menuOpen">
+                    <img src="../src/assets/img/Polygon 1.png" alt="" class="triangulo">
+                    <button class="editarPerfil"><img src="../src/assets/img/user.png" alt="">Editar perfil</button>
+                    <button class="logout"><img src="../src/assets/img/logoutHeader.png" alt="">Sair do app</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container container__tarefas">
+            <section class="section section__tarefas-header">
+                <div class="container container__tarefas-header">
+                    <h4 class="h4 h4__tarefas-titulo">Tarefas</h4>
+                    <div class="container container__tarefas-botoes">
+                        <button class="button button__todos">Todos</button>
+                        <button class="button button__concluidos">Concluídos</button>
+                        <button class="button button__criar">Criar</button>
+                    </div>
+                </div>
+            </section>
+            <section class="section section__tarefas-tabela">
+                <div class="container container__tarefas-tabela">
+                    <table class="table table__tarefas">
+                        <tr class="tr">
+                            <th class="th th__status">Status</th>
+                            <th class="th th__titulo">Título</th>
+                            <th class="th th__desc">Descrição</th>
+                            <th class="th th__categoria">Categoria</th>
+                            <th class="th th__editar">Editar</th>
+                        </tr>
+                        <tr class="tr">
+                            <td class="td td__checkbox">
+                                <label class="label label__tabela">
+                                    <input type="checkbox" checked="" class="input input__checkbox">
+                                    <span class="span span__checkmark"></span>
+                                </label>
+                            </td>
+                            <td class="td td__titulo">Fazer exercícios segunda pela manhãFazer exercícios segunda pela manhãFazer exercícios segunda pela manhãFazer exercícios segunda pela manhãFazer exercícios segunda pela manhã</td>
+                            <td class="td td__desc">Ir correr na próximaIr correr na próximaIr correr na próximaIr correr na próximaIr correr na próxima</td>
+                            <td class="td td__categoria"><span class="span span__categoria">Saúde</span></td>
+                            <td class="td td__editar"><button class="button button__editar-habito"><img src="../assets/img/habitEdit.png" alt="Editar Habito" class="image image__editar-habito"></button></td>    
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <section class="section section__button">
+                <div class="container container__button">
+                    <button class="button button__carregar">Carregar mais</button>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script type="module" src="../src/scripts/script.js"></script>
+</body>
+</html>

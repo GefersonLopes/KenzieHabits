@@ -3,9 +3,17 @@
     justify-content: center;
     
 }
+.icone__logo {
+    width: 18.076rem;
+}
 .container__logo-usuario-header {
-    width: 65.4rem;
-    justify-content: space-around;
+    width: 17rem;
+    justify-content: space-between;
+    align-items: center;
+}
+.container__usuario-div{
+    width: 17rem;
+    justify-content: space-between;
     align-items: center;
 }
 .button__usuario {
@@ -19,50 +27,63 @@
     object-fit: cover;
 }
 .container__usuario {
+    display: flex;
     background-color: rgba(var(--color-brand-1), 1);
     height: 7.8rem;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 .container__usuario-header {
-    width: 65.4rem;
+    justify-content: center;
+    align-items: center;
+}
+.container__usuario-vazia {
+    width: 2.5rem;
     justify-content: center;
     align-items: center;
 }
 @media screen and (min-width:768px) {
     .container__usuario-header {
-        width: 65.4rem;
-        padding-left: 9rem;
+        
         justify-content: start;
         align-items: center;
     }
 }
 @media screen and (min-width:1024px) {
     .container__usuario-header {
-        width: 65.4rem;
-        padding-left: 13.2rem;
         justify-content: start;
         align-items: center;
     }
 }
 @media screen and (min-width:1440px) {
     .container__usuario-header {
-        width: 65.4rem;
-        padding-left: 13.3rem;
         justify-content: start;
         align-items: center;
     }
 }
-@media screen and (min-width:1920px) {
+@media screen and (min-width:768px) {
+    .container__logo-usuario-header {
+        width: 42rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .container__usuario-div{
+        width: 42rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+@media screen and (min-width:1100px) {
     .container__logo-usuario-header {
         width: 65.4rem;
         justify-content: space-between;
         align-items: center;
     }
-    .container__usuario-header {
+
+    .container__usuario-div{
         width: 65.4rem;
-        padding-left: 0rem;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
     }
 }
@@ -126,7 +147,7 @@
     }
 }
 .h4__tarefas-titulo {
-    padding-left: 1rem;
+    padding-left: 0.9rem;
 }
 @media screen and (min-width:768px) {
     .h4__tarefas-titulo {
@@ -212,12 +233,12 @@
 }
 @media screen and (min-width:768px) {
     .section__tarefas-tabela {
-        width: 31.5rem;
+        width: 42rem;
     }
 }
-@media screen and (min-width:1024px) {
+@media screen and (min-width:1100px) {
     .section__tarefas-tabela {
-        width: 39.2rem;
+        width: 65.4rem;
     }
 }
 @media screen and (min-width:1920px) {
@@ -228,12 +249,18 @@
 .container__tarefas-tabela {
     width: 17rem;
 }
-@media screen and (min-width:1920px) {
+@media screen and (min-width:768px) {
+    .container__tarefas-tabela {
+        width: 42rem;
+    }
+    .table__tarefas {
+        border: 2px solid rgba(var(--color-grey-4), 1);
+    }
+}
+@media screen and (min-width:1100px) {
     .container__tarefas-tabela {
         width: 65.4rem;
     }
-}
-@media screen and (min-width:1920px) {
     .table__tarefas {
         border: 2px solid rgba(var(--color-grey-4), 1);
     }
@@ -305,7 +332,6 @@
     }
     
     .th__titulo {
-        width: 30.875rem;
         text-align: start;
         padding-left: 0rem;
     }
@@ -315,14 +341,14 @@
         max-width: 14rem;
         display: table-cell;
         text-align: start;
-       
+        padding-left: 1rem;
     }
     
     .th__categoria {
         width: 8rem;
-        display: none;
+        display: table-cell;
         text-align: start;
-        
+        padding-left: 1rem;
     }
     
     .th__editar {
@@ -338,7 +364,6 @@
     }
     
     .td__titulo {
-        width: 30.875rem;
         padding-left: 0rem;
     }
     
@@ -346,13 +371,15 @@
         width: 14rem;
         max-width: 14rem;
         display: table-cell;
+        padding-left: 1rem;
     }
     
     .td__categoria {
         width: 8rem;
-        display: none;
+        display: table-cell;
         justify-content: start;
         align-items: center;
+        padding-left: 1rem;
     }
     
     .td__editar {
@@ -360,77 +387,12 @@
         padding-left: 0.5rem;
     }
 }
-@media screen and (min-width:1024px) {
+@media screen and (min-width:1100px) {
     .th__status {
         width: 5.375rem;
     }
     
     .th__titulo {
-        width: 30.875rem;
-        text-align: start;
-        padding-left: 0rem;
-    }
-    
-    .th__desc {
-        width: 14rem;
-        max-width: 14rem;
-        padding-left: 1rem;
-        display: table-cell;
-        text-align: start;
-       
-    }
-    
-    .th__categoria {
-        width: 8rem;
-        display: none;
-        text-align: start;
-        
-    }
-    
-    .th__editar {
-        width: 5rem;
-        padding-left: 1.7rem;
-        text-align: start;
-    }
-    
-    .td__checkbox {
-        width: 5.375rem;
-        display: flex;
-        justify-content: center;
-    }
-    
-    .td__titulo {
-        width: 30.875rem;
-        max-width: 14rem;
-        padding-left: 0rem;
-    }
-    
-    .td__desc {
-        width: 14rem;
-        max-width: 14rem;
-        padding-left: 1rem;
-        display: table-cell;
-    }
-    
-    .td__categoria {
-        width: 8rem;
-        display: none;
-        justify-content: start;
-        align-items: center;
-    }
-    
-    .td__editar {
-        width: 5rem;
-        padding-left: 1.7rem;
-    }
-}
-@media screen and (min-width:1920px) {
-    .th__status {
-        width: 5.375rem;
-    }
-    
-    .th__titulo {
-        width: 30.875rem;
         text-align: start;
         padding-left: 0rem;
     }
@@ -439,14 +401,14 @@
         width: 16rem;
         display: table-cell;
         text-align: start;
-       
+        padding-left: 1rem;
     }
     
     .th__categoria {
         width: 8rem;
         display: table-cell;
         text-align: start;
-        
+        padding-left: 1rem;    
     }
     
     .th__editar {
@@ -462,13 +424,13 @@
     }
     
     .td__titulo {
-        width: 30.875rem;
         padding-left: 0rem;
     }
     
     .td__desc {
         width: 16rem;
         display: table-cell;
+        padding-left: 1rem;
     }
     
     .td__categoria {
@@ -476,13 +438,23 @@
         display: flex;
         justify-content: start;
         align-items: center;
+        padding-left: 1rem;
     }
     
     .td__editar {
         width: 5rem;
+        padding-left: 0rem;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .td__editar {
+        width: 5rem;
+        text-align: start;
         padding-left: 0.5rem;
     }
 }
+
 .button__editar-habito {
     background-color: rgba(var(--color-grey-6), 1);
     padding-left: 0.4rem;

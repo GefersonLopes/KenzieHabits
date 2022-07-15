@@ -60,6 +60,7 @@ class Homepage {
         divLogoUsuarioHeader.classList.add("container", "container__logo-usuario-header");
 
         const iconeLogo = document.createElement("icone");
+        iconeLogo.classList.add("icone", "icone__logo")
         const imgLogo = document.createElement("img");
         imgLogo.src = "/src/assets/img/logoKenzieHabit.png";
         imgLogo.alt = "Logo KenzieHub";
@@ -86,6 +87,12 @@ class Homepage {
         const divContainerUsuarioHeader = document.createElement("div");
         divContainerUsuarioHeader.classList.add("container", "container__usuario-header");
 
+        const divContainerUsuarioVazia = document.createElement("div");
+        divContainerUsuarioVazia.classList.add("container", "container__usuario-vazia");
+
+        const divContainerUsuarioDiv = document.createElement("div");
+        divContainerUsuarioDiv.classList.add("container", "container__usuario-div")
+
         const iconeUsuarioHeader = document.createElement("icone");
         const imgUsuarioHeader = document.createElement("img");
         imgUsuarioHeader.src = JSON.parse(localStorage.getItem("@kenzie-capstone:userFoto"));
@@ -105,8 +112,9 @@ class Homepage {
         pUsuarioInfo.innerText = "Estudante de Programação";
 
         divContainerUsuarioInfo.append(h4Nome, pUsuarioInfo);
-        divContainerUsuarioHeader.append(iconeUsuarioHeader, divContainerUsuarioInfo)
-        divContainerUsuario.appendChild(divContainerUsuarioHeader);
+        divContainerUsuarioHeader.append(iconeUsuarioHeader, divContainerUsuarioInfo);
+        divContainerUsuarioDiv.append(divContainerUsuarioHeader, divContainerUsuarioVazia);
+        divContainerUsuario.append(divContainerUsuarioDiv);
         header.appendChild(divContainerUsuario);
         body.appendChild(header);
 

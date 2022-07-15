@@ -289,6 +289,7 @@
     width: 3rem;
     display: flex;
     justify-content: center;
+    margin: 0 auto;
 }
 .td__titulo {
     width: 8rem;

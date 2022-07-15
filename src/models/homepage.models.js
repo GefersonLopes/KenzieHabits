@@ -180,7 +180,7 @@ class Homepage {
                         labelLabelTabela.classList.add('label', 'label__tabela')
 
                         const inputInputCheckbox = document.createElement('input')
-                        inputInputCheckbox.classList.add('input', 'input__checkbox')
+                        inputInputCheckbox.classList.add('input__checkbox')
                         inputInputCheckbox.type = 'checkbox'
                         inputInputCheckbox.checked = ''
 
@@ -276,7 +276,7 @@ class Homepage {
                             labelLabelTabela.classList.add('label', 'label__tabela')
                             
                             const inputInputCheckbox = document.createElement('input')
-                            inputInputCheckbox.classList.add('input', 'input__checkbox')
+                            inputInputCheckbox.classList.add('input__checkbox')
                             inputInputCheckbox.type = 'checkbox'
                             inputInputCheckbox.checked = 'checked'
                             
@@ -385,7 +385,7 @@ class Homepage {
         labelLabelTabela.classList.add('label', 'label__tabela')
 
         const inputInputCheckbox = document.createElement('input')
-        inputInputCheckbox.classList.add('input', 'input__checkbox')
+        inputInputCheckbox.classList.add('input__checkbox')
         inputInputCheckbox.type = 'checkbox'
 
         inputInputCheckbox.checked = ''
@@ -515,7 +515,7 @@ class Homepage {
                     labelLabelTabela.classList.add('label', 'label__tabela')
 
                     const inputInputCheckbox = document.createElement('input')
-                    inputInputCheckbox.classList.add('input', 'input__checkbox')
+                    inputInputCheckbox.classList.add('input__checkbox')
                     inputInputCheckbox.type = 'checkbox'
                     inputInputCheckbox.checked = ''
 

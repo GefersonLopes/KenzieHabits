@@ -157,10 +157,10 @@ export class criarCardHabito {
             .then(obj => obj.json())
             .then(res => {
                 console.log(res);
+                window.location.reload(true)
                 return res;
             })
             .catch(err => console.log("deu erro ao criar hábito " + err))
-
     }
 
 }

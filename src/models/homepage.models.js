@@ -360,7 +360,6 @@ class Homepage {
                     const newArray = res.forEach(elem => {
                         if (elem.habit_status === true) {
 
-
                             const tr2 = document.createElement('tr')
                             tr2.classList.add('tr')
                             
@@ -381,6 +380,7 @@ class Homepage {
                             const tdTdTitulo = document.createElement('td')
                             tdTdTitulo.classList.add('td', 'td__titulo')
                             tdTdTitulo.innerText = elem.habit_title
+                            tdTdTitulo.style.textDecoration = "line-through";
                             
                             const tdTdDesc = document.createElement('td')
                             tdTdDesc.classList.add('td', 'td__desc')
@@ -422,6 +422,15 @@ class Homepage {
                             
                             tableTableTarefas.append(tr2)
 
+                            console.log(inputInputCheckbox.checked)
+
+                            if(inputInputCheckbox.checked === true) {
+                                tdTdTitulo.style.textDecoration = "line-through";
+                            } else {
+                                tdTdTitulo.style.textDecoration = "none";
+                            }
+
+
                             buttonButtonEditarHabito.addEventListener("click", (e) => {
                                 e.preventDefault()
                                 modalEditarHabito.criarModalEditarHabito()
@@ -430,6 +439,7 @@ class Homepage {
                                 
                             })
                         }
+                    
                     })
 
                     console.log(newArray);

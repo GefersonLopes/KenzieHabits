@@ -1,3 +1,6 @@
+import Homepage from "../models/homepage.models.js";
+
+
 export default class requisicoesEditarHabito {
     static url = "https://habits-kenzie.herokuapp.com/api/habits";
     static token = JSON.parse(localStorage.getItem("@kenzie-capstone:token"))
@@ -14,9 +17,33 @@ export default class requisicoesEditarHabito {
         })
         .then(res => res.json())
         .then(res => {
-            window.location.reload(true)
-            console.log(res)
+            window.location.reload(true);
+            return res;
+            // console.log(res)
         })
         .catch(err => console.log(err))
     }
+
+    static async atualizaStatus(id) {
+        return await fetch(`${this.url}/complete/${id}`, {
+            method : "PATCH",
+            headers: this.headers
+        })
+        .then(res => res.json())
+        .then(res => {
+            window.location.reload(true);
+            return res;
+            // console.log(res);
+        })
+        .catch(err => console.log(err));
+    }
+
+    static async atualizaMain() {
+        Homepage.limpaMain();
+        // Homepage.menuMudarPerfil();
+        Homepage.criarHeader();
+        Homepage.criarMain();
+        await Homepage.todosHabitos();
+    }
+
 }

@@ -124,6 +124,28 @@ class Homepage {
             /* const teste = document.querySelector(".") */
             tableTableTarefas.innerHTML = ""
             /* window.location.reload(true) */
+
+            const tr_cabecalho = document.createElement('tr')
+            tr_cabecalho.classList.add('tr_cabecalho')
+
+            const thThStatus = document.createElement('th')
+            thThStatus.classList.add('th', 'th__status')
+            thThStatus.innerText = 'Status'
+    
+            const thThTitulo = document.createElement('th')
+            thThTitulo.classList.add('th', 'th__titulo')
+            thThTitulo.innerText = 'Título'
+    
+            const thThDesc = document.createElement('th')
+            thThDesc.classList.add('th', 'th__desc')
+            thThDesc.innerText = 'Descrição'
+    
+            const thThCategoria = document.createElement('th')
+            thThCategoria.classList.add('th', 'th__categoria')
+            thThCategoria.innerText = 'Categoria'
+            tableTableTarefas.append(tr_cabecalho)
+            tr_cabecalho.append(thThStatus, thThTitulo, thThDesc, thThCategoria, thThEditar)
+
             
             return await fetch("https://habits-kenzie.herokuapp.com/api/habits", {
                 method: "GET",
@@ -138,6 +160,27 @@ class Homepage {
                         console.log(elem)
                         const tr2 = document.createElement('tr')
                         tr2.classList.add('tr')
+
+                        
+                        const thThStatus = document.createElement('th')
+                        thThStatus.classList.add('th', 'th__status')
+                        thThStatus.innerText = 'Status'
+                
+                        const thThTitulo = document.createElement('th')
+                        thThTitulo.classList.add('th', 'th__titulo')
+                        thThTitulo.innerText = 'Título'
+                
+                        const thThDesc = document.createElement('th')
+                        thThDesc.classList.add('th', 'th__desc')
+                        thThDesc.innerText = 'Descrição'
+                
+                        const thThCategoria = document.createElement('th')
+                        thThCategoria.classList.add('th', 'th__categoria')
+                        thThCategoria.innerText = 'Categoria'
+                
+                        const thThEditar = document.createElement('th')
+                        thThEditar.classList.add('th', 'th__editar')
+                        thThEditar.innerText = 'Editar'
 
                         const tdTdCheckbox = document.createElement('td')
                         tdTdCheckbox.classList.add('td', 'td__checkbox')
@@ -196,6 +239,10 @@ class Homepage {
 
                         tableTableTarefas.append(tr2)
 
+
+
+
+
                         buttonButtonEditarHabito.addEventListener("click", (e) => {
                             e.preventDefault()
                             modalEditarHabito.criarModalEditarHabito()
@@ -219,6 +266,28 @@ class Homepage {
 
             tableTableTarefas.innerHTML = ""
             // window.location.reload(true)
+
+            const tr_cabecalho = document.createElement('tr')
+            tr_cabecalho.classList.add('tr_cabecalho')
+
+            const thThStatus = document.createElement('th')
+            thThStatus.classList.add('th', 'th__status')
+            thThStatus.innerText = 'Status'
+    
+            const thThTitulo = document.createElement('th')
+            thThTitulo.classList.add('th', 'th__titulo')
+            thThTitulo.innerText = 'Título'
+    
+            const thThDesc = document.createElement('th')
+            thThDesc.classList.add('th', 'th__desc')
+            thThDesc.innerText = 'Descrição'
+    
+            const thThCategoria = document.createElement('th')
+            thThCategoria.classList.add('th', 'th__categoria')
+            thThCategoria.innerText = 'Categoria'
+            tableTableTarefas.append(tr_cabecalho)
+            tr_cabecalho.append(thThStatus, thThTitulo, thThDesc, thThCategoria, thThEditar)
+
             
             return await fetch("https://habits-kenzie.herokuapp.com/api/habits", {
                 method: "GET",

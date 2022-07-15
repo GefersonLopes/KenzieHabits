@@ -19,20 +19,21 @@
     position: fixed;
 }
 
+
 #editar-habito {
-    width: 29.375em;
-    height: 34.375rem;
+    width: 90%;
+    max-height: 34.375rem;
+    min-height: 31.25;
+    background-color: var(--gray-6);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 32px;
-    background-color: var(--gray-6);
     border-radius: 8px;
     padding: 2rem;
     top: 0;
     left: 0;
+    gap: 32px;
 }
-
 
 .corpo-model-editar {
     display: flex;
@@ -45,6 +46,7 @@
     font-size: 0.875rem;
     width: 100%;
     height: 100%;
+
 }
 
 .cabecalho-model-editar {
@@ -74,11 +76,11 @@
 .formulario-editar-habito {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: stretch;
+    justify-content: space-between;
     gap: 32px;
     width: 100%;
-    height: 100%;
+    height: 96%;
 }
 
 .input {
@@ -99,7 +101,6 @@
     padding: 0.563rem 0rem;
 }
 
-
 .input::placeholder {
     display: flex;
     color: var(--gray-2);
@@ -110,6 +111,7 @@
     color: var(--gray-2);
     padding: 1rem;
 }
+
 
 #descricao::placeholder {
     position: absolute;
@@ -140,7 +142,9 @@
 
 .botoes-model-editar {
     width: 100%;
+    height: 5.625rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
@@ -150,6 +154,10 @@
     flex-direction: column;
     width: 100%;
     gap: 0.5rem;
+}
+
+.status-habito {
+    display: none;
 }
 
 .excluir {
@@ -162,7 +170,7 @@
     gap: 10px;
     border-radius: 4px;
     border: 2px solid #F1F3F5;
-    width: 12.938rem;
+    width: 100%;
     height: 2.5rem;
     font-size: 1rem;
     font-weight: 600;
@@ -183,11 +191,189 @@
     color: var(--gray-6);
     border-radius: 4px;
     border: 2px solid #F1F3F5;
-    width: 15.938rem;
+    width: 100%;
     height: 2.5rem;
     font-size: 1rem;
     font-weight: 600;
     font-family: var(--fonte-inter);
     font-style: normal;
     padding: 0.750rem 3.125rem;
+}
+
+@media screen and (min-width: 500px) {
+    
+    #editar-habito {
+        width: 29.375em;
+        height: 34.375rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 32px;
+        background-color: var(--gray-6);
+        border-radius: 8px;
+        padding: 2rem;
+        top: 0;
+        left: 0;
+    }
+
+
+    .corpo-model-editar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: var(--fonte-inter);
+        font-style: normal;
+        font-weight: 400;
+        color: var(--gray-2);
+        font-size: 0.875rem;
+        width: 100%;
+        height: 100%;
+    }
+
+    .cabecalho-model-editar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        color: var(--gray-1);
+        font-weight: 600;
+        font-size: 1.25rem;
+        left: 32px;
+        font-family: var(--fonte-inter);
+        font-style: normal;
+        
+    }
+
+    .fechar-modal-editar {
+        border: none;
+        background-color: var(--gray-6);
+        color: #ADB5BD;
+        font-weight: 600;
+        font-size: 1.250rem;
+        font-family: 'Nunito', sans-serif;
+    }
+
+    .formulario-editar-habito {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 32px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .input {
+        background-color: var(--gray-5);
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        font-family: var(--fonte-inter);
+        font-style: normal;
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--gray-2);
+        border: 2px solid rgba(var(--gray-5));
+        border-radius: 4px;
+        gap: 10px;
+        padding: 0.563rem 0rem;
+    }
+
+    .input::placeholder {
+        display: flex;
+        color: var(--gray-2);
+        font-family: var(--fonte-inter);
+        font-style: normal;
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--gray-2);
+        padding: 1rem;
+    }
+
+    #descricao::placeholder {
+        position: absolute;
+        
+    }
+
+    .input--descricao-habito{
+        height: 4rem;
+    }
+
+    .status-habito {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .input--categoria-habito {
+        width: 100%;
+    }
+
+    .input--descricao-habito {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .botoes-model-editar {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .agrupar {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .excluir {
+        background-color: var(--gray-5);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 50px;
+        gap: 10px;
+        border-radius: 4px;
+        border: 2px solid #F1F3F5;
+        width: 11.938rem;
+        height: 2.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: var(--fonte-inter);
+        font-style: normal;
+        padding: 0.750rem 3.125rem;
+        margin: 0.2rem;
+    }
+
+    .salvar-alteracao {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 50px;
+        gap: 10px;
+        background-color: #A0ADF9;
+        border: 2px solid #A0ADF9;
+        color: var(--gray-6);
+        border-radius: 4px;
+        border: 2px solid #F1F3F5;
+        width: 14.938rem;
+        height: 2.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: var(--fonte-inter);
+        font-style: normal;
+        padding: 0.750rem 3.125rem;
+        margin: 0.2rem;
+    }
 }

@@ -5,46 +5,12 @@ import ModalExcluir from "../controller/modalExcluir.controller.js";
 
 const valorToken = JSON.parse(localStorage.getItem("@kenzie-capstone:token"))
 class Homepage {
-    static menuMudarPerfil() {
-        const body = document.querySelector("body")
-        const divContainer = document.createElement("div")
-        divContainer.classList.add("menuOpen")
 
-        const imgTriangulo = document.createElement("img")
-        imgTriangulo.src = "/src/assets/img/Polygon 1.png"
-        imgTriangulo.classList.add("triangulo")
-
-        const btnEditarPerfil = document.createElement("button")
-        btnEditarPerfil.classList.add("editarPerfil")
-        const imgBoneco = document.createElement("img")
-        imgBoneco.src = "/src/assets/img/user.png"
-        btnEditarPerfil.innerText = "Editar perfil"
-
-        btnEditarPerfil.append(imgBoneco)
-
-        const btnFazerLogout = document.createElement("button")
-        btnFazerLogout.classList.add("logout")
-        const imgSetaLogout = document.createElement("img")
-        imgSetaLogout.src = "/src/assets/img/logoutHeader.png"
-        btnFazerLogout.innerText = "Sair do app"
-
-        btnFazerLogout.append(imgSetaLogout)
-
-        divContainer.append(imgTriangulo, btnEditarPerfil, btnFazerLogout)
-
-        body.append(divContainer)
-
-        btnEditarPerfil.addEventListener("click", () => {
-            ModalEditarPerfil.editarPerfil()
-
-        })
-
-        btnFazerLogout.addEventListener("click", () => {
-            window.location.href = "/index.html"
-            localStorage.clear()
-        })
-
+    static limpaMain(){
+        const body = document.querySelector("body");
+        body.innerHTML = "";
     }
+
 
     static criarHeader() {
 
@@ -244,7 +210,7 @@ class Homepage {
             event.preventDefault()
 
             tableTableTarefas.innerHTML = ""
-            window.location.reload(true)
+            // window.location.reload(true)
             
             return await fetch("https://habits-kenzie.herokuapp.com/api/habits", {
                 method: "GET",
@@ -256,8 +222,10 @@ class Homepage {
                 .then(res => res.json())
                 .then(res => {
                     console.log(res)
-                    const newArray = res.filter(elem => {
+                    const newArray = res.forEach(elem => {
                         if (elem.habit_status === true) {
+
+
                             const tr2 = document.createElement('tr')
                             tr2.classList.add('tr')
                             
@@ -328,7 +296,12 @@ class Homepage {
                             })
                         }
                     })
+
+                    console.log(newArray);
+                    // window.location.reload(true)
+
                 })
+                .then(res => {return res})
         })
 
         const buttonButtonCriar = document.createElement('button')

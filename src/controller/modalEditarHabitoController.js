@@ -26,10 +26,15 @@ export default class modalEditarHabito {
             "habit_title": titulo,
             "habit_description": descricao,
             "habit_category": categoria,
-            /* "habit_status": status */
+            // "habit_status": status
         }
+
+        
+        
         
         requisicoesEditarHabito.salvaAlteracoes(dadosRequisicao, id)
+        requisicoesEditarHabito.atualizaStatus(id);
+        // requisicoesEditarHabito.atualizaMain();
         console.log(dadosRequisicao)
         console.log(categoria)
 
@@ -86,15 +91,15 @@ export default class modalEditarHabito {
         tituloEditarHabito.innerText = "Editar hábito";
 
         botaoFechar.classList.add("fechar-modal-editar");
-        iconeBotaoFechar.classList.add("editar-fechar");
-        iconeBotaoFechar.innerText = "X";
+        botaoFechar.classList.add("editar-fechar");
+        botaoFechar.innerText = "X";
 
         botaoFechar.addEventListener("click", el => {
             el.preventDefault();
-            //criar função para fechar
+            divPegaGeral.style.display = "none";
         })
 
-        labelTitulo.classList.add("titulo-habito");
+        labelTitulo.classList.add("label", "titulo-habito");
         labelTitulo.innerText = "Título";
         labelTitulo.for = "titulo-habito";
 
@@ -104,7 +109,9 @@ export default class modalEditarHabito {
         inputTitulo.classList.add("input", "input--titulo-habito");
         inputTitulo.placeholder = "Digitar título";
 
+        labelDescricao.classList.add("label", "label--descricao")
         labelDescricao.for = "descricao-habito";
+        labelDescricao.innerText = "Descrição";
 
         inputDescricao.type = "text";
         inputDescricao.id = "descricao";
@@ -112,7 +119,10 @@ export default class modalEditarHabito {
         inputDescricao.classList.add("input", "input--descricao-habito");
         inputDescricao.placeholder = "Digitar descrição";
         
+        labelCategoria.classList.add("label", "label-categoria");
         labelCategoria.for = "categoria-habito";
+        labelCategoria.innerText = "Categoria";
+
         selectCategoria.id = "categoria";
         selectCategoria.name = "categoria-habito";
         selectCategoria.classList.add("input", "input--categoria-habito");
@@ -140,11 +150,14 @@ export default class modalEditarHabito {
         optionSaude.value = "saude";
         optionSaude.classList.add("fa-solid", "heart")
 
-        labelStatus.for = "status-habito";
+        labelStatus.classList.add("label", "label-status");
+        labelStatus.for = "categoria-habito";
+        labelStatus.innerText = "Status";
 
         inputStatus.type = "checkbox";
         inputStatus.id = "status";
         inputStatus.name = "status-habito";
+        inputStatus.checked = "";
 
         botaoExcluir.type = "submit";
         botaoExcluir.classList.add("excluir");
@@ -158,7 +171,7 @@ export default class modalEditarHabito {
         });
 
         botaoSalvar.type = "submit";
-        botaoSalvar.class = "salvar-alteracao";
+        botaoSalvar.classList.add("salvar-alteracao");
         botaoSalvar.innerText = "Salvar alterações";
         botaoSalvar.addEventListener("click", el => {
             el.preventDefault();

@@ -38,12 +38,16 @@ export default class requisicoesEditarHabito {
         .catch(err => console.log(err));
     }
 
-    static async atualizaMain() {
-        Homepage.limpaMain();
-        // Homepage.menuMudarPerfil();
-        Homepage.criarHeader();
-        Homepage.criarMain();
-        await Homepage.todosHabitos();
+    static async pegarDadosDoHabito(id){
+        return await fetch(this.url, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${this.token}`
+            }
+        })
+        .then(res => res.json())
+        .then(res => console.log(res))
     }
+
 
 }

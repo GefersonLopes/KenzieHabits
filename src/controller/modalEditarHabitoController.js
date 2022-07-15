@@ -97,6 +97,7 @@ export default class modalEditarHabito {
         botaoFechar.addEventListener("click", el => {
             el.preventDefault();
             divPegaGeral.style.display = "none";
+            requisicoesEditarHabito.pegarDadosDoHabito();
         })
 
         labelTitulo.classList.add("label", "titulo-habito");
@@ -108,6 +109,7 @@ export default class modalEditarHabito {
         inputTitulo.name = "titlulo-habito";
         inputTitulo.classList.add("input", "input--titulo-habito");
         inputTitulo.placeholder = "Digitar título";
+        inputTitulo.minLength = "5"
 
         labelDescricao.classList.add("label", "label--descricao")
         labelDescricao.for = "descricao-habito";
@@ -118,6 +120,7 @@ export default class modalEditarHabito {
         inputDescricao.name = "descricao-habito";
         inputDescricao.classList.add("input", "input--descricao-habito");
         inputDescricao.placeholder = "Digitar descrição";
+        inputTitulo.minLength = "5"
         
         labelCategoria.classList.add("label", "label-categoria");
         labelCategoria.for = "categoria-habito";
@@ -132,19 +135,21 @@ export default class modalEditarHabito {
         
         optionCasa.innerText = "Casa";
         optionCasa.value = "casa";
-        optionCasa.classList.add("fa-solid", "user-alt");
+        // optionCasa.classList.add("fa-solid", "fa-user-alt");
+        const icon = document.createElement("i");
+        icon.classList.add("fa-solid", "fa-user-alt");
 
         optionEstudo.innerText = "Estudo";
         optionEstudo.value = "estudos";
-        optionEstudo.classList.add("fa-solid", "poll-h");
+        optionEstudo.classList.add("fa-solid", "fa-poll-h");
 
         optionLazer.innerText = "Lazer";
         optionLazer.value = "lazer";
-        optionLazer.classList.add("fa-solid", "leaf")
+        optionLazer.classList.add("fa-solid", "fa-leaf")
 
         optionTrabalho.innerText = "Trabalho";
         optionTrabalho.value = "trabalho";
-        optionTrabalho.classList.add("fa-solid", "poll");
+        optionTrabalho.classList.add("fa-solid", "fa-poll");
 
         optionSaude.innerText = "Saúde";
         optionSaude.value = "saude";
@@ -234,7 +239,7 @@ export default class modalEditarHabito {
         divPegaGeral.append(divEditarHabito)
 
         selectCategoria.append(optionCasa, optionEstudo, optionLazer, optionTrabalho, optionSaude);
-        
+        optionCasa.append(icon);
         divPegaGeral.style.display = "none"
 
         // optionCasa.append(iconeCasa);
@@ -250,4 +255,5 @@ export default class modalEditarHabito {
         // iconeCasa.append(imgSaude)
 
     }
+
 }

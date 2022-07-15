@@ -6,6 +6,8 @@
     --vermelhoFosco: #E64445;
     --preto: 0, 0, 0;
     --fonte-inter: 'Inter', sans-serif;
+    --gray-3: #ADB5BD;
+    --brand-2: #4150D2;
 }
 
 .divPegaGeral {
@@ -17,6 +19,7 @@
     align-items: center;
     justify-content: center;
     position: fixed;
+
 }
 
 
@@ -73,6 +76,12 @@
     font-family: 'Nunito', sans-serif;
 }
 
+.fechar-modal-editar:hover {
+    box-shadow: 0px 0px 8px rgba(80, 80, 80, 0.4);
+    background-color: rgba(80, 80, 80, 0.2);
+    color: var(--gray-2);
+}
+
 .formulario-editar-habito {
     display: flex;
     flex-direction: column;
@@ -99,6 +108,11 @@
     border-radius: 4px;
     gap: 10px;
     padding: 0.563rem 0rem;
+    cursor: text;
+}
+
+.input:hover {
+    background-color: rgba(80, 80, 80, 0.1)
 }
 
 .input::placeholder {
@@ -134,10 +148,23 @@
     width: 100%;
 }
 
+#status {
+    cursor: pointer;
+}
+
+#status:hover {
+    box-shadow:0px 0px 4px rgba(var(--preto), 0.5);
+}
+
 .input--descricao-habito {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+}
+
+.input--categoria-habito:hover{
+    cursor: pointer;
+
 }
 
 .botoes-model-editar {
@@ -179,6 +206,11 @@
     padding: 0.750rem 3.125rem;
 }
 
+
+.excluir:hover{
+    box-shadow: 0px 0px 4px rgba(var(--preto), 0.5);
+}
+
 .salvar-alteracao {
     display: flex;
     flex-direction: row;
@@ -198,6 +230,11 @@
     font-family: var(--fonte-inter);
     font-style: normal;
     padding: 0.750rem 3.125rem;
+}
+
+.salvar-alteracao:hover {
+    border: none;
+    box-shadow: 0px 0px 4px rgba(var(--preto), 0.5);
 }
 
 @media screen and (min-width: 500px) {

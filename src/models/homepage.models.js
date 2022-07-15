@@ -6,6 +6,55 @@ import ModalExcluir from "../controller/modalExcluir.controller.js";
 const valorToken = JSON.parse(localStorage.getItem("@kenzie-capstone:token"))
 class Homepage {
 
+    static menuMudarPerfil() {
+        const body = document.querySelector("body")
+
+        /* const divFundo = document.createElement("div")
+        divFundo.classList.add("divFundo") */
+        const containerTela = document.querySelector(".container__usuario-div")
+        
+        const divContainer = document.createElement("div")
+        divContainer.classList.add("menuOpen")
+
+        const imgTriangulo = document.createElement("img")
+        imgTriangulo.src = "/src/assets/img/Polygon 1.png"
+        imgTriangulo.classList.add("triangulo")
+
+        const btnEditarPerfil = document.createElement("button")
+        btnEditarPerfil.classList.add("editarPerfil")
+        const imgBoneco = document.createElement("img")
+        imgBoneco.src = "/src/assets/img/user.png"
+        btnEditarPerfil.innerText = "Editar perfil"
+
+        btnEditarPerfil.append(imgBoneco)
+
+        const btnFazerLogout = document.createElement("button")
+        btnFazerLogout.classList.add("logout")
+        const imgSetaLogout = document.createElement("img")
+        imgSetaLogout.src = "/src/assets/img/logoutHeader.png"
+        btnFazerLogout.innerText = "Sair do app"
+
+        btnFazerLogout.append(imgSetaLogout)
+
+        divContainer.append(imgTriangulo, btnEditarPerfil, btnFazerLogout)
+        
+        containerTela.append(divContainer)
+        
+        /* body.append(divContainer) */
+
+        btnEditarPerfil.addEventListener("click", () => {
+            ModalEditarPerfil.editarPerfil()
+            divContainer.remove()
+        })
+
+        btnFazerLogout.addEventListener("click", () => {
+            window.location.href = "/index.html"
+            localStorage.clear()
+        })
+
+    }
+
+
     static limpaMain(){
         const body = document.querySelector("body");
         body.innerHTML = "";
@@ -84,8 +133,16 @@ class Homepage {
         header.appendChild(divContainerUsuario);
         body.appendChild(header);
 
+
         buttonUsuario.addEventListener("click", () => {
-            this.menuMudarPerfil()
+            const varClasseModal = document.querySelector(".menuOpen")
+            if(varClasseModal === null) {
+                this.menuMudarPerfil() 
+
+            } else {
+                varClasseModal.remove()
+
+            }
 
         })
 
@@ -110,6 +167,7 @@ class Homepage {
         const h4h4TarefasTitulo = document.createElement('h4')
         h4h4TarefasTitulo.classList.add('h4', 'h4__tarefas-titulo')
         h4h4TarefasTitulo.innerText = 'Tarefas'
+        
 
         const containerContainerTarefasBotoes = document.createElement('div')
         containerContainerTarefasBotoes.classList.add('container', 'container__tarefas-botoes')
